@@ -258,7 +258,7 @@
 		}
 	},
 	"6/5":{
-		"name":"outdoor",
+		"name":"outside",
 		"dirs":{
 			"0":"E",
 			"1":"S",
@@ -460,7 +460,7 @@
 		}
 	},
 	"9/7":{
-		"name":"start",
+		"name":"starting",
 		"dirs":{
 			"0":"N"
 		},
@@ -666,7 +666,7 @@
 		}
 	},
 	"13/6":{
-		"name":"staff room",
+		"name":"staff",
 		"dirs":{
 			"0":"E",
 			"1":"W"
@@ -716,7 +716,7 @@
 		}
 	},
 	"14/5":{
-		"name":"staff room",
+		"name":"staff",
 		"dirs":{
 			"0":"N",
 			"1":"S"
@@ -726,7 +726,7 @@
 		}
 	},
 	"14/6":{
-		"name":"staff room",
+		"name":"staff",
 		"dirs":{
 			"0":"N",
 			"1":"W"

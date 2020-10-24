@@ -2,11 +2,17 @@ import time
 import random
 import json
 
-from petrolasset import *
+import petrolasset as asset
 
 import MAPS.SCHOOL.setup as setup
 
-mapfi = open("./MAPS/SCHOOL/map.json", "r")
+mapfi = None
+
+try:
+    mapfi = open("./SRC/MAPS/SCHOOL/map.json", "r")
+except:
+    mapfi = open("./MAPS/SCHOOL/map.json", "r")
+
 maptxt = mapfi.read()
 mapfi.close()
 
@@ -23,7 +29,7 @@ class player:
         self.health = 10
         self.inventory = ['torch']
 
-        self.pos = position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
+        self.pos = asset.position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
 
     def __str__(self):
         out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()
@@ -58,7 +64,7 @@ while True:
         for u in mapd[p1.posi()]["dirs"]:
             posib.append(mapd[p1.posi()]["dirs"][u])
 
-        posib = settogo(posib)
+        posib = asset.settogo(posib)
 
         if com.upper() in posib:
             if com.upper() == "GO NORTH":

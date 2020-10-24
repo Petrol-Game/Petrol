@@ -69,6 +69,31 @@ def settogo(stuff):
 
     return out
 
+def settoin(stuff):
+    out = []
+
+    for i in stuff:
+        do = i.replace("N", "NORTH")
+
+        if "NORTH" in do:
+            out.append(do)
+        
+        do = i.replace("E", "EAST")
+
+        if "EAST" in do:
+            out.append(do)
+
+        do = i.replace("S", "SOUTH")
+
+        if "SOUTH" in do:
+            out.append(do)
+
+        do = i.replace("W", "WEST")
+
+        if "WEST" in do:
+            out.append(do)
+
+    return out
 
 def checkmap(mapu):
     done = []
