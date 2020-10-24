@@ -4,7 +4,7 @@ class npc:
     def __init__(self, name, position, health, relation):
         self.name = name
         self.position = position
-        self.health = health
+        self.health = float(health)
         self.relation = relation
 
     def __str__(self):
@@ -24,6 +24,8 @@ class player:
         self.inventory = inventory('torch')
 
         self.pos = position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
+
+        self.fist = float(1.5)
 
     def __str__(self):
         out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()

@@ -4,12 +4,27 @@ class callset:
     def __init__(self):
         npcs = []
         
-        add = asset.npc("Mr Lane", asset.position(0, 0), 10, 0)
+        add = asset.npc("Mr Road", asset.position(0, 0), 10, 0)
         npcs.append(add)
 
         self.npcs = npcs
 
-    def newroom(coords, mapp):
+    def attack(self, damage, wepon, target, coord):
+        for npc in self.npcs:
+            if npc.name.upper() == target.upper():
+                if npc.position.__str__() == coord.__str__():
+                    npc.health -= float(damage)
+
+                    if npc.health <= 0:
+                        print("You killed " + target.upper() + ", with a " + wepon.upper())
+                    else:
+                        print("You attacked " + target.upper() + ", with a " + wepon.upper())
+                    
+                    return
+        
+        print("You could not attack " + target.upper())
+
+    def newroom(self, coords, mapp):
         go = []
 
         for u in mapp[coords]["dirs"]:
