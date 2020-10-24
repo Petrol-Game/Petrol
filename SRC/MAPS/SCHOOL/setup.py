@@ -1,6 +1,14 @@
-import petrolasset
+import petrolasset as asset
 
 class callset:
+    def __init__(self):
+        npcs = []
+        
+        add = asset.npc("Mr Lane", asset.position(0, 0), 10, 0)
+        npcs.append(add)
+
+        self.npcs = npcs
+
     def newroom(coords, mapp):
         go = []
 
@@ -12,7 +20,7 @@ class callset:
             else:
                 go.append(i.__str__())
         
-        gofa = petrolasset.settoin(go)
+        gofa = asset.settoin(go)
 
         gof = ""
 

@@ -17,44 +17,21 @@ maptxt = mapfi.read()
 mapfi.close()
 
 mapd = json.loads(maptxt)
-
-class player:
-    def __init__(self):
-        print("[SETUP]")
-        print()
-        print("name: ")
-        self.name = input()
-        print()
-
-        self.health = 10
-        self.inventory = ['torch']
-
-        self.pos = asset.position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
-
-    def __str__(self):
-        out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()
-
-        return out
-
-    def addinv(self, item):
-        self.inventory.append(item)
-
-    def reminv(self, item):
-        self.inventory.remove(item)
-
-    def posi(self):
-        out = self.pos.__str__()
-
-        return out
        
-p1 = player()
+p1 = asset.player()
 
 callback = setup.callset
 
+last = None
+
 while True:
+    if last != p1.posi():
+        print()
+        print(callback.newroom(p1.posi(), mapd))
+    
     print()
-    print(callback.newroom(p1.posi(), mapd))
-    print()
+
+    last = p1.posi()
 
     com = input(">> ")
 
@@ -77,3 +54,7 @@ while True:
                 p1.pos.gowest()
         else:
             print("sorry you cant travel that way") 
+    elif com[:4].upper() == "KILL":
+        print("i will kill them")
+    else:
+        print("invalid command " + com.upper())

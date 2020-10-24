@@ -12,6 +12,35 @@ class npc:
         
         return out
 
+class player:
+    def __init__(self):
+        print("[SETUP]")
+        print()
+        print("name: ")
+        self.name = input()
+        print()
+
+        self.health = 10
+        self.inventory = inventory('torch')
+
+        self.pos = asset.position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
+
+    def __str__(self):
+        out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()
+
+        return out
+
+    def addinv(self, item):
+        self.inventory.append(item)
+
+    def reminv(self, item):
+        self.inventory.remove(item)
+
+    def posi(self):
+        out = self.pos.__str__()
+
+        return out
+
 class position:
     def __init__(self, x, y):
         self.x = int(x)
@@ -34,9 +63,36 @@ class position:
 
         return out
 
+class inventory:
+    def __init__(self, *items):
+        self.items = []
+
+        for itemm in items:
+            self.items.append(item(itemm))
+
+    def size(self):
+        out = len(self.items)
+
+        return out
+
+    def __len__(self):
+        out = self.size()
+
+        return out
+
+    def __str__(self):
+        out = ""
+
+        for item in self.items:
+            out += item.__str__() + ", "
+
+        out = out[:-2]
+
+        return out
+
 class item:
     def __init__(self, code):
-        self.code = int(code)
+        self.code = code.__str__()
 
     def __str__(self):
         out = self.code.__str__()
