@@ -3,7 +3,7 @@ altgraph==0.10.2
 arrow==0.15.5
 asn1crypto==0.24.0
 atomicwrites==1.4.0
-attrs==19.3.0
+attrs==20.2.0
 backports-abc==0.5
 backports.functools-lru-cache==1.6.1
 backports.weakref==1.0.post1
