@@ -18,7 +18,7 @@ mapfi.close()
 
 mapd = json.loads(maptxt)
        
-p1 = asset.player()
+p1 = asset.player(mapd)
 
 callback = setup.callset
 
@@ -57,4 +57,4 @@ while True:
     elif com[:4].upper() == "KILL":
         print("i will kill them")
     else:
-        print("invalid command " + com.upper())
+        print("invalid command " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")

@@ -13,7 +13,7 @@ class npc:
         return out
 
 class player:
-    def __init__(self):
+    def __init__(self, mapd):
         print("[SETUP]")
         print()
         print("name: ")
@@ -23,7 +23,7 @@ class player:
         self.health = 10
         self.inventory = inventory('torch')
 
-        self.pos = asset.position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
+        self.pos = position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
 
     def __str__(self):
         out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()
