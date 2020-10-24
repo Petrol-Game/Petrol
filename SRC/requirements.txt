@@ -91,7 +91,7 @@ pyobjc-framework-ServiceManagement==2.5.1
 pyobjc-framework-Social==2.5.1
 pyobjc-framework-SyncServices==2.5.1
 pyobjc-framework-SystemConfiguration==2.5.1
-pyobjc-framework-WebKit==2.5.1
+pyobjc-framework-WebKit==6.2.2
 pyOpenSSL==19.0.0
 pyparsing==2.4.7
 pytest==4.6.11
