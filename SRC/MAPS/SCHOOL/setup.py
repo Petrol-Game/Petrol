@@ -52,3 +52,23 @@ class callset:
             print("you are in a " + room + ", you can go " + gof.__str__())
         else:
             print("you are in the " + room + " room, you can go " + gof.__str__())
+
+        it = []
+
+        try:
+            for item in mapp[coords]["items"]:
+                ite = mapp[coords]["items"][item]
+
+                it.append(ite)
+        except:
+            pass
+
+        if len(it) > 0:
+            out = ""
+
+            for i in it:
+                out += "a " + i + ", "
+
+            out = out[:-2]
+
+            print("on the floor there is, " + out)

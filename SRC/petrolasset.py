@@ -21,7 +21,7 @@ class player:
         print()
 
         self.health = 10
-        self.inventory = inventory('torch')
+        self.inventory = inventory('TORCH')
 
         self.pos = position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
 

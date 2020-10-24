@@ -98,7 +98,7 @@
 			"2":"S"
 		},
 		"items":{
-			"0":"paper_airplane"
+			"0":"paper airplane"
 		}
 	},
 	"3/3":{
@@ -120,7 +120,7 @@
 			"2":"W"
 		},
 		"items":{
-			"0":"apple_core"
+			"0":"apple core"
 		}
 	},
 	"4/2":{
@@ -390,7 +390,7 @@
 			"2":"W"
 		},
 		"items":{
-			"0":"electric_soldering_iron"
+			"0":"electric soldering iron"
 		}
 	},
 	"8/6":{
@@ -529,7 +529,7 @@
 			"1":"W"
 		},
 		"items":{
-			"0":"spanish_text_book"
+			"0":"spanish text book"
 		}
 	},
 	"11/2":{
@@ -612,7 +612,7 @@
 			"0":"S"
 		},
 		"items":{
-			"0":"set_square"
+			"0":"set square"
 		}
 	},
 	"12/5":{
@@ -651,7 +651,7 @@
 			"1":"E"
 		},
 		"items":{
-			"0":"bunsen_burner",
+			"0":"bunsen burner",
 			"1":"matches"
 		}
 	},
@@ -672,7 +672,7 @@
 			"1":"W"
 		},
 		"items":{
-			"0":"coffer_cup"
+			"0":"coffer cup"
 		}
 	},
 	"14/1":{
@@ -681,7 +681,7 @@
 			"0":"E"
 		},
 		"items":{
-			"0":"shut_down_button"
+			"0":"shut down button"
 		}
 	},
 	"14/2":{
@@ -712,7 +712,7 @@
 			"1":"S"
 		},
 		"items":{
-			"0":"smashed_glass"
+			"0":"smashed glass"
 		}
 	},
 	"14/5":{
@@ -859,7 +859,7 @@
 			"1":"W"
 		},
 		"items":{
-			"0":"sand_paper"
+			"0":"sand paper"
 		}
 	},
 	"SPAWN":{

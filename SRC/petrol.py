@@ -31,7 +31,7 @@ last = None
 while True:
     if last != p1.posi():
         print()
-        print(callback.newroom(p1.posi(), mapd))
+        callback.newroom(p1.posi(), mapd)
     
     print()
 
@@ -63,9 +63,21 @@ while True:
     elif com.upper() == "BACKPACK":
         print()
         print(p1.inventory.__str__())
+    elif com[:6].upper() == "PICKUP":
+        for item in mapd[p1.posi()]["items"]:
+            try:
+                if mapd[p1.posi()]["items"][item].upper() == com[7:].upper():
+                    p1.inventory.items.append(asset.item(mapd[p1.posi()]["items"][item].upper()))
+                    mapd[p1.posi()]["items"][item] = None
+
+                    print("picked up " + com[7:].upper())
+                else:
+                    print("sorry could not find " + com[7:].upper())
+            except:
+                print("sorry could not find " + com[7:].upper())
     else:
         # all debug commands go here, they are only execed when debug flag is set, this is disabled in release builds.
-        
+
         if debug:
             if com.upper() == "TP":
                 print("[DEBUG]")
