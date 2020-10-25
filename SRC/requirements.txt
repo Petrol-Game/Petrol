@@ -38,7 +38,7 @@ idna==2.7
 importlib-metadata==2.0.0
 ipaddress==1.0.23
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.2
 macholib==1.5.1
 MarkupSafe==1.1.1
 mock==3.0.5
