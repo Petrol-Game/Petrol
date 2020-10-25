@@ -62,8 +62,13 @@ class callset:
                 it.append(ite)
         except:
             pass
+        
+        floor = ""
+        dofloor = False
 
         if len(it) > 0:
+            dofloor = True
+
             out = ""
 
             for i in it:
@@ -71,4 +76,32 @@ class callset:
 
             out = out[:-2]
 
-            print("on the floor there is, " + out)
+            floor = "on the floor there is, " + out
+        
+        tosay = []
+
+        for npc in self.npcs:
+            if npc.position.__str__() == coords.__str__():
+                tosay.append(npc.name)
+
+        people = ""
+        dopeople = False
+
+        if len(tosay) > 0:
+            dopeople = True
+
+            out = ""
+
+            for i in tosay:
+                out += i + ", "
+            
+            out = out[:-2]
+
+            people = "you are joined by, " + out
+
+        if dopeople and dofloor:
+            print(people + " and " + floor)
+        elif dopeople:
+            print(people)
+        elif dofloor:
+            print(floor)

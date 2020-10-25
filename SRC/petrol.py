@@ -64,6 +64,8 @@ while True:
         print()
         print(p1.inventory.__str__())
     elif com[:6].upper() == "PICKUP":
+        # allows you to pickup items, still need to add functoins to allow you to drop items
+        
         for item in mapd[p1.posi()]["items"]:
             try:
                 if mapd[p1.posi()]["items"][item].upper() == com[7:].upper():

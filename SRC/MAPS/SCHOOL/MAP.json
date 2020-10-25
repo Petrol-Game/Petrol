@@ -863,6 +863,11 @@
 		}
 	},
 	"SPAWN":{
-		"coord":"9/7"
+		"coord":"9/7",
+		"lives":"1",
+		"autorespawn":"False",
+		"items":{
+			"0":"torch"
+		}
 	}
 }
