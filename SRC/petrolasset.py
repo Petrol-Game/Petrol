@@ -3,11 +3,12 @@ import time
 import json
 
 class npc:
-    def __init__(self, name, position, health, relation):
+    def __init__(self, name, position, health, relation, damage):
         self.name = name
         self.position = position
         self.health = float(health)
         self.relation = relation
+        self.damage = float(damage)
 
     def __str__(self):
         out = "[" + self.name + "] - " + self.position.__str__() + " - [H" + str(self.health) + "] - [R" + str(self.relation) + "]"
@@ -27,7 +28,7 @@ class player:
 
         self.pos = position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
 
-        self.fist = float(1.5)
+        self.fist = float(4)
 
     def __str__(self):
         out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()

@@ -28,10 +28,12 @@ callback = setup.callset()
 
 last = None
 
-while True:
+while p1.health > 0:
     if last != p1.posi():
         print()
-        callback.newroom(p1.posi(), mapd)
+        callback.newroom(p1.posi(), mapd, p1)
+    
+    callback.room(p1, p1.posi())
     
     print()
 
@@ -100,3 +102,6 @@ while True:
                 p1.pos = asset.position(input("x: "), input("y: "))
         else:
             print("invalid command " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
+
+print()
+print("You are now dead, we hope you had fun!")

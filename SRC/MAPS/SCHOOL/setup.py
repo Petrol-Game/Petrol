@@ -4,7 +4,7 @@ class callset:
     def __init__(self):
         npcs = []
         
-        add = asset.npc("Mr Road", asset.position(0, 0), 10, 0)
+        add = asset.npc("Mr Road", asset.position(0, 0), 10, 0, 2)
         npcs.append(add)
 
         self.npcs = npcs
@@ -24,7 +24,7 @@ class callset:
         
         print("You could not attack " + target.upper())
 
-    def newroom(self, coords, mapp):
+    def newroom(self, coords, mapp, player):
         go = []
 
         for u in mapp[coords]["dirs"]:
@@ -79,10 +79,14 @@ class callset:
             floor = "on the floor there is, " + out
         
         tosay = []
+        damage = []
 
         for npc in self.npcs:
             if npc.position.__str__() == coords.__str__():
                 tosay.append(npc.name)
+
+                if npc.relation == 0:
+                    damage.append(npc)
 
         people = ""
         dopeople = False
@@ -105,3 +109,23 @@ class callset:
             print(people)
         elif dofloor:
             print(floor)
+        
+    def room(self, player, coords):
+        damage = []
+        for npc in self.npcs:
+            if npc.position.__str__() == coords.__str__():
+                if npc.relation == 0:
+                    if npc.health <= 0:
+                        damage.append(npc)
+        
+        print()
+
+        dama = ""
+
+        for dam in damage:
+            player.health -= dam.damage
+
+            dama += dam.name + ", "
+
+        if len(dama) > 0:
+            print(dama + "attacked you, your health is at " + player.health.__str__())
