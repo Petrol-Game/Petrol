@@ -3,9 +3,11 @@ import petrolasset as asset
 class callset:
     def __init__(self):
         npcs = []
-        
-        add = asset.npc("Mr Road", asset.position(0, 0), 10, 0, 2)
-        npcs.append(add)
+
+        npcs.append(asset.npc("Mr Road", asset.position(0, 0), 10, 0, 1))
+        npcs.append(asset.npc("Mrs Armstrong", asset.position(3, 2), 10, 0, 1))
+        npcs.append(asset.npc("Mr Thyme", asset.position(6, 5), 10, 0, 5))
+        npcs.append(asset.npc("Mr Almost", asset.position(10, 5), 10, 0, 10))
 
         self.npcs = npcs
 
