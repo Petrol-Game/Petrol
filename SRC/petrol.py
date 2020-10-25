@@ -9,7 +9,7 @@ import MAPS.SCHOOL.setup as setup
 while True:
     debug = True
 
-    mapfi = asset.openf("MAPS/SCHOOL/map.json", "r")
+    mapfi = asset.openfi("MAPS/SCHOOL/map.json", "r")
 
     maptxt = mapfi.read()
     mapfi.close()
