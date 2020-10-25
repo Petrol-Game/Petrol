@@ -1,6 +1,7 @@
 import random
 import time
 import json
+import sys
 
 class npc:
     def __init__(self, name, position, health, relation, damage):
@@ -158,7 +159,7 @@ def settoin(stuff):
 
     return out
 
-def credits(cred):
+def petrolcredits(cred):
     c = json.loads(cred)
 
     print()
@@ -204,7 +205,7 @@ def checkmap(mapu):
             else:
                 return False
             
-            if not(nc in done):
+            if nc not in done:
                 todo.append(nc)
             try:
                 todo.remove(current)
@@ -221,7 +222,7 @@ def checkmap(mapu):
                 if pp == c:
                     notin = False
 
-                    pass
+                    break
 
             if notin:
                 print(nc)
@@ -232,3 +233,19 @@ def checkmap(mapu):
                 return True
             else:
                 current = todo[0]
+
+def openfi(name, method = "r"):
+    out = None
+
+    try:
+        out = open("./" + name.__str__(), method.__str__())
+    except:
+        out = open("./SRC" + name.__str__(), method.__str__())
+
+    return out
+
+def clear(): 
+    if sys.name == 'nt': 
+        _ = sys.system('cls') 
+    else: 
+        _ = sys.system('clear') 

@@ -111,7 +111,7 @@ class callset:
         for npc in self.npcs:
             if npc.position.__str__() == coords.__str__():
                 if npc.relation == 0:
-                    if npc.health <= 0:
+                    if npc.health >= 0:
                         damage.append(npc)
         
         print()
@@ -133,3 +133,9 @@ class callset:
             if input("Are you sure you want to do this? [Y/N] ").upper() == "Y":
                 player.won = True
                 player.health = 0
+
+    def win(self):
+        print("You Won")
+
+    def loose(self):
+        print("You Lost")

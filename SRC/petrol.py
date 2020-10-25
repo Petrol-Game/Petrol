@@ -9,12 +9,7 @@ import MAPS.SCHOOL.setup as setup
 while True:
     debug = True
 
-    mapfi = None
-
-    try:
-        mapfi = open("SRC/MAPS/SCHOOL/map.json", "r")
-    except:
-        mapfi = open("MAPS/SCHOOL/map.json", "r")
+    mapfi = asset.openf("MAPS/SCHOOL/map.json", "r")
 
     maptxt = mapfi.read()
     mapfi.close()
@@ -25,24 +20,14 @@ while True:
 
     last = None
 
-    logoa = None
-
-    try:
-        logoa = open("./ASSETS/LOGO/A.txt", "r")
-    except:
-        logoa = open("./SRC/ASSETS/LOGO/A.txt", "r")
+    logoa = asset.openfi("ASSETS/LOGO/A.txt", "r")
 
     logoaa = int(logoa.read())
 
     logoa.close()
     logoa = None
 
-    logo = None
-
-    try:
-        logo = open("./ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
-    except:
-        logo = open("./SRC/ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
+    logo = asset.openfi("ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
 
     print(logo.read())
 
@@ -52,7 +37,11 @@ while True:
     print()
     print("[PRESS ENTER TO START]")
     print()
+    
     input()
+
+    asset.clear()
+    
     print("playing on map: SCHOOL")
     print()
        
@@ -126,17 +115,12 @@ while True:
             else:
                 print("sorry you dont have that item")
         elif com.upper() == "CREDITS":
-            credd = None
-
-            try:
-                credd = open("./MAPS/SCHOOL/INFO.json", "r")
-            except:
-                credd = open("./SRC/MAPS/SCHOOL/INFO.json", "r")
+            credd = asset.openfi("MAPS/SCHOOL/INFO.json", "r")
         
             cred = credd.read()
             credd.close()
 
-            asset.credits(cred)
+            asset.petrolcredits(cred)
         else:
             # all debug commands go here, they are only execed when debug flag is set, this is disabled in release builds.
 
@@ -149,12 +133,12 @@ while True:
             else:
                 print("invalid command " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
 
-    print()
+    asset.clear()
 
     if p1.won:
-        print("Well done you won!")
+        callback.win()
     else:
-        print("You are now dead, we hope you had fun!")
+        callback.loose()
 
     print()
     input()
