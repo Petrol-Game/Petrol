@@ -65,7 +65,7 @@ while True:
         print(p1.inventory.__str__())
     elif com[:6].upper() == "PICKUP":
         # allows you to pickup items, still need to add functoins to allow you to drop items
-        
+
         for item in mapd[p1.posi()]["items"]:
             try:
                 if mapd[p1.posi()]["items"][item].upper() == com[7:].upper():
@@ -77,6 +77,18 @@ while True:
                     print("sorry could not find " + com[7:].upper())
             except:
                 print("sorry could not find " + com[7:].upper())
+    elif com.upper() == "CREDITS":
+        credd = None
+
+        try:
+            credd = open("./MAPS/SCHOOL/INFO.json", "r")
+        except:
+            credd = open("./SRC/MAPS/SCHOOL/INFO.json", "r")
+        
+        cred = credd.read()
+        credd.close()
+
+        asset.credits(cred)
     else:
         # all debug commands go here, they are only execed when debug flag is set, this is disabled in release builds.
 

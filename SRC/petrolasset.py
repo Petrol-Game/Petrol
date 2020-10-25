@@ -1,4 +1,6 @@
 import random
+import time
+import json
 
 class npc:
     def __init__(self, name, position, health, relation):
@@ -153,6 +155,21 @@ def settoin(stuff):
 
     return out
 
+def credits(cred):
+    c = json.loads(cred)
+
+    print()
+    print(c["c"])
+
+    for i in c["creedits"]:
+        print()
+        print(c["creedits"][i])
+
+        time.sleep(0.5)
+    
+    print()
+
+#function desined to test that the map works, currently a bug makes it say True all the time, im working on fxing ths
 def checkmap(mapu):
     done = []
 
