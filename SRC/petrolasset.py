@@ -240,7 +240,7 @@ def openfi(name, method = "r"):
     try:
         out = open("./" + name.__str__(), method.__str__())
     except:
-        out = open("./SRC" + name.__str__(), method.__str__())
+        out = open("./SRC/" + name.__str__(), method.__str__())
 
     return out
 
