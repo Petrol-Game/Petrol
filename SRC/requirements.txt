@@ -72,7 +72,7 @@ pyobjc-framework-CoreText==2.5.1
 pyobjc-framework-DictionaryServices==2.5.1
 pyobjc-framework-EventKit==2.5.1
 pyobjc-framework-ExceptionHandling==2.5.1
-pyobjc-framework-FSEvents==2.5.1
+pyobjc-framework-FSEvents==6.2.2
 pyobjc-framework-InputMethodKit==2.5.1
 pyobjc-framework-InstallerPlugins==2.5.1
 pyobjc-framework-InstantMessage==2.5.1
