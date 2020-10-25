@@ -8,7 +8,7 @@
             "name": "Petrol",
             "type": "python",
             "request": "launch",
-            "program": "./SRC/petrol.py",
+            "program": "./SRC/__main__.py",
             "console": "integratedTerminal"
         }
     ]
