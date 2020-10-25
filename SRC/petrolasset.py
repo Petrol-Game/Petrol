@@ -165,11 +165,15 @@ def petrolcredits(cred):
     print()
     print(c["c"])
 
+    time.sleep(0.5)
+
     for i in c["creedits"]:
         print()
         print(c["creedits"][i])
 
         time.sleep(0.5)
+
+    time.sleep(1)
     
     print()
 

@@ -4,12 +4,12 @@ import json
 
 import petrolasset as asset
 
-import MAPS.SCHOOL.setup as setup
+import ASSETS.MAPS.SCHOOL.setup as setup
 
 while True:
     debug = True
 
-    mapfi = asset.openfi("MAPS/SCHOOL/map.json", "r")
+    mapfi = asset.openfi("ASSETS/MAPS/SCHOOL/map.json", "r")
 
     maptxt = mapfi.read()
     mapfi.close()
@@ -115,12 +115,18 @@ while True:
             else:
                 print("sorry you dont have that item")
         elif com.upper() == "CREDITS":
-            credd = asset.openfi("MAPS/SCHOOL/INFO.json", "r")
+            asset.clear()
+
+            credd = asset.openfi("ASSETS/MAPS/SCHOOL/INFO.json", "r")
         
             cred = credd.read()
             credd.close()
 
             asset.petrolcredits(cred)
+
+            asset.clear()
+
+            last = None
         else:
             # all debug commands go here, they are only execed when debug flag is set, this is disabled in release builds.
 
