@@ -21,12 +21,28 @@ mapfi = None
 
 mapd = json.loads(maptxt)
 maptxt = None
+
+last = None
+
+print("""
+ ________  _______  _________  ________  ________  ___          
+|\   __  \|\  ___ \|\___   ___\\   __  \|\   __  \|\  \         
+\ \  \|\  \ \   __/\|___ \  \_\ \  \|\  \ \  \|\  \ \  \        
+ \ \   ____\ \  \_|/__  \ \  \ \ \   _  _\ \  \\\  \ \  \       
+  \ \  \___|\ \  \_|\ \  \ \  \ \ \  \\  \\ \  \\\  \ \  \____  
+   \ \__\    \ \_______\  \ \__\ \ \__\\ _\\ \_______\ \_______\\
+    \|__|     \|_______|   \|__|  \|__|\|__|\|_______|\|_______|
+                                                                                                                     
+""")
+print("[PRESS ENTER TO START]")
+print()
+input()
+print("playing on map: SCHOOL")
+print()
        
 p1 = asset.player(mapd)
 
 callback = setup.callset()
-
-last = None
 
 while p1.health > 0:
     if last != p1.posi():
@@ -79,6 +95,20 @@ while p1.health > 0:
                     print("sorry could not find " + com[7:].upper())
             except:
                 print("sorry could not find " + com[7:].upper())
+    elif com[:3].upper() == "USE":
+        pos = p1.inventory.items
+        cando = False
+
+        for p in pos:
+            if p.__str__().upper() == com[4:].upper():
+                cando = True
+
+                break
+
+        if cando:
+            callback.interact(com[4:], p1)
+        else:
+            print("sorry you dont have that item")
     elif com.upper() == "CREDITS":
         credd = None
 
@@ -104,4 +134,10 @@ while p1.health > 0:
             print("invalid command " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
 
 print()
-print("You are now dead, we hope you had fun!")
+
+if p1.won:
+    print("Well done you won!")
+else:
+    print("You are now dead, we hope you had fun!")
+
+print()

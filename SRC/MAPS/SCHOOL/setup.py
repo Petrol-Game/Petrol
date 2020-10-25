@@ -79,14 +79,10 @@ class callset:
             floor = "on the floor there is, " + out
         
         tosay = []
-        damage = []
 
         for npc in self.npcs:
             if npc.position.__str__() == coords.__str__():
                 tosay.append(npc.name)
-
-                if npc.relation == 0:
-                    damage.append(npc)
 
         people = ""
         dopeople = False
@@ -129,3 +125,11 @@ class callset:
 
         if len(dama) > 0:
             print(dama + "attacked you, your health is at " + player.health.__str__())
+
+    def interact(self, item, player):
+        if item.__str__().upper() == "SHUTDOWN BUTTON":
+            print()
+
+            if input("Are you sure you want to do this? [Y/N] ").upper() == "Y":
+                player.won = True
+                player.health = 0

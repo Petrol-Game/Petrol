@@ -30,6 +30,8 @@ class player:
 
         self.fist = float(4)
 
+        self.won = False
+
     def __str__(self):
         out = "[" + self.name + "] - [H" + str(self.health) + "] - " + self.pos.__str__() + " - " + self.inventory.__str__()
 
