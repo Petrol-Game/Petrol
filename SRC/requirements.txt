@@ -34,7 +34,7 @@ grpcio==1.26.0
 httplib2==0.18.1
 idna==2.7
 importlib-metadata==2.0.0
-ipaddress==1.0.22
+ipaddress==1.0.23
 itsdangerous==1.1.0
 Jinja2==2.11.1
 macholib==1.5.1
