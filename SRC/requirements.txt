@@ -1,6 +1,6 @@
 absl-py==0.9.0
 altgraph==0.10.2
-arrow==0.15.5
+arrow==0.17.0
 asn1crypto==0.24.0
 atomicwrites==1.4.0
 attrs==20.2.0
