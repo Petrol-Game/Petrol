@@ -11,9 +11,9 @@ debug = True
 mapfi = None
 
 try:
-    mapfi = open("./SRC/MAPS/SCHOOL/map.json", "r")
+    mapfi = open("SRC/MAPS/SCHOOL/map.json", "r")
 except:
-    mapfi = open("./MAPS/SCHOOL/map.json", "r")
+    mapfi = open("MAPS/SCHOOL/map.json", "r")
 
 maptxt = mapfi.read()
 mapfi.close()
