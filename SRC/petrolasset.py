@@ -1,7 +1,7 @@
 import random
 import time
 import json
-import sys
+import os
 
 class npc:
     def __init__(self, name, position, health, relation, damage):
@@ -250,7 +250,7 @@ def openfi(name, method = "r"):
     return out
 
 def clear(): 
-    if sys.name == 'nt': 
-        _ = sys.system('cls') 
+    if os.name == 'nt': 
+        _ = os.system('cls') 
     else: 
-        _ = sys.system('clear') 
+        _ = os.system('clear') 

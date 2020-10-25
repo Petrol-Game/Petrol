@@ -133,9 +133,3 @@ class callset:
             if input("Are you sure you want to do this? [Y/N] ").upper() == "Y":
                 player.won = True
                 player.health = 0
-
-    def win(self):
-        print("You Won")
-
-    def loose(self):
-        print("You Lost")

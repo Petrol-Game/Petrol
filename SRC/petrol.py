@@ -49,7 +49,7 @@ while True:
 
     callback = setup.callset()
 
-    while p1.health > 0:
+    while p1.health >= 0:
         if last != p1.posi():
             print()
             callback.newroom(p1.posi(), mapd, p1)
@@ -129,16 +129,45 @@ while True:
                     print("[DEBUG]")
                     print("debug command - not garanteed to work")
                     print()
+
                     p1.pos = asset.position(input("x: "), input("y: "))
+
+                    input()
+                elif com.upper() == "WIN":
+                    print("[DEBUG]")
+                    print("debug command - not garanteed to work")
+                    print()
+
+                    p1.won = True
+                    p1.health = -1
+
+                    input()
+                elif com.upper() == "LOOSE":
+                    print("[DEBUG]")
+                    print("debug command - not garanteed to work")
+                    print()
+
+                    p1.won = False
+                    p1.health = -1
+                else:
+                    print("invalid command " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
             else:
                 print("invalid command " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
 
     asset.clear()
 
     if p1.won:
-        callback.win()
+        out = asset.openfi("ASSETS/END/WIN/0.txt")
+
+        print(out.read())
+
+        out.close()
     else:
-        callback.loose()
+        out = asset.openfi("ASSETS/END/LOST/0.txt")
+        
+        print(out.read())
+
+        out.close()
 
     print()
     input()
