@@ -3,7 +3,7 @@ print("Loading Petrol")
 print()
 
 try:
-    from petrol import *
+    import petrol
 except Exception as e:
     print("ERROR")
     print()
