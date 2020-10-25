@@ -37,4 +37,4 @@ jobs:
     - name: Test with pytest
       working-directory: SRC
       run: |
-       pytest __main__.py
+       pytest petrol.py

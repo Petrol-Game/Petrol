@@ -231,8 +231,8 @@ def checkmap(mapu):
 
             if len(todo) == 0:
                 return True
-            else:
-                current = todo[0]
+            
+            current = todo[0]
 
 def openfi(name, method = "r"):
     out = None
