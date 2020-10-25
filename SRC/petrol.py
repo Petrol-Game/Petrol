@@ -25,17 +25,31 @@ while True:
 
     last = None
 
-    print("""
-    ________  _______  _________  ________  ________  ___          
-    |\   __  \|\  ___ \|\___   ___\\\\   __  \|\   __  \|\  \         
-    \ \  \|\  \ \   __/\|___ \  \_\ \  \|\  \ \  \|\  \ \  \        
-     \ \   ____\ \  \_|/__  \ \  \ \ \   _  _\ \  \\\\\  \ \  \       
-      \ \  \___|\ \  \_|\ \  \ \  \ \ \  \\\\  \\\\ \  \\\\\  \ \  \____  
-       \ \__\    \ \_______\  \ \__\ \ \__\\\\ _\\\\ \_______\ \_______\\
-        \|__|     \|_______|   \|__|  \|__|\|__|\|_______|\|_______|
-                                                                                                                     
-    """)
+    logoa = None
 
+    try:
+        logoa = open("./ASSETS/LOGO/A.txt", "r")
+    except:
+        logoa = open("./SRC/ASSETS/LOGO/A.txt", "r")
+
+    logoaa = int(logoa.read())
+
+    logoa.close()
+    logoa = None
+
+    logo = None
+
+    try:
+        logo = open("./ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
+    except:
+        logo = open("./SRC/ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
+
+    print(logo.read())
+
+    logo.close()
+    logo = None
+    
+    print()
     print("[PRESS ENTER TO START]")
     print()
     input()
