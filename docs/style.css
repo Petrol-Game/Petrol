@@ -1,0 +1,52 @@
+#title{
+    background-color: white;
+
+    width: 100vw;
+
+    border: none;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#titletext{
+    color: black;
+}
+
+.top{
+    font-size: 25px;
+}
+
+.nope{
+    background-color: rgb(224, 60, 60);
+}
+
+.partial{
+    background-color: rgb(201, 201, 67);
+}
+
+.almost{
+    background-color: rgb(214, 162, 66);
+}
+
+.done{
+    background-color: rgb(74, 212, 74);
+}
+
+td{
+    font-size: 20px;
+}
+
+table,th,td{
+    grid-row: auto;
+    border: 1px solid white;
+}
+
+h1,h2,p,td{
+    color: white;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: black;
+}
