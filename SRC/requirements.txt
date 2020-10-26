@@ -1,7 +1,7 @@
 absl-py==0.10.0
-altgraph==0.10.2
+altgraph==0.17
 arrow==0.17.0
-asn1crypto==0.24.0
+asn1crypto==1.4.0
 atomicwrites==1.4.0
 attrs==20.2.0
 backports-abc==0.5
@@ -16,7 +16,7 @@ cachetools==4.1.1
 certifi==2019.11.28
 cffi==1.14.3
 chardet==3.0.4
-configparser==4.0.2
+configparser==5.0.1
 contextlib2==0.6.0.post1
 cryptography==3.1.1
 Django==3.1.2
@@ -28,7 +28,7 @@ future==0.17.1
 google-api-core==1.23.0
 google-api-python-client==1.12.5
 google-auth==1.22.1
-google-auth-httplib2==0.0.3
+google-auth-httplib2==0.0.4
 google-auth-oauthlib==0.4.1
 google-pasta==0.2.0
 googleapis-common-protos==1.52.0
@@ -77,4 +77,4 @@ uritemplate==3.0.1
 urllib3==1.25.11
 wcwidth==0.2.5
 Werkzeug==1.0.1
-zipp==1.2.0
+zipp==3.4.0
