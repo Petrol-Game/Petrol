@@ -1,7 +1,7 @@
 import petrolasset as asset
 
 class callset:
-    def __init__(self):
+    def __init__(self, player):
         npcs = []
 
         npcs.append(asset.npc("Mr Road", asset.position(0, 0), 10, 0, 1))
@@ -10,6 +10,8 @@ class callset:
         npcs.append(asset.npc("Mr Almost", asset.position(10, 5), 10, 0, 10))
 
         self.npcs = npcs
+
+        player.health = 10
 
     def attack(self, damage, wepon, target, coord):
         for npc in self.npcs:
@@ -129,9 +131,18 @@ class callset:
             print(dama + "attacked you, your health is at " + player.health.__str__())
 
     def interact(self, item, player):
-        if item.__str__().upper() == "SHUTDOWN BUTTON":
+        if item.upper() == "SHUTDOWN BUTTON":
             print()
 
             if input("Are you sure you want to do this? [Y/N] ").upper() == "Y":
                 player.won = True
                 player.health = 0
+        elif item.upper() == "APPLE":
+            player.health += 3
+
+            if player.health > 10:
+                player.health = player.health - (player.health - 10)
+
+            print("you ate an apple, your health is now at, " + player.health.__str__())
+        else:
+            print("sorry you cannot interact with this object")

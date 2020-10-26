@@ -31,10 +31,6 @@ while True:
     
     input()
 
-    asset.clear()
-
-    print("MAPS:")
-
     posmaps = []
 
     try:
@@ -42,16 +38,32 @@ while True:
     except:
         posmaps = os.listdir("./SRC/ASSETS/MAPS")
 
-    i = 0
+    choice = None
 
-    for posm in posmaps:
-        print(i.__str__() + ": " + posm)
+    possib = True
 
-    print()
-    choice = input("? ")
+    while possib:
+        asset.clear()
 
-    mapfi = asset.openfi("ASSETS/MAPS/" + posmaps[int(choice)] + "/map.json", "r")
-    setup = importlib.import_module("ASSETS.MAPS." + posmaps[int(choice)] + ".setup")
+        print("MAPS:")
+
+        i = 0
+
+        for posm in posmaps:
+            print(i.__str__() + ": " + posm)
+
+            i += 1
+
+        print()
+        choice = input("? ")
+
+        try:
+            mapfi = asset.openfi("ASSETS/MAPS/" + posmaps[int(choice)] + "/map.json", "r")
+            setup = importlib.import_module("ASSETS.MAPS." + posmaps[int(choice)] + ".setup")
+
+            possib = False
+        except:
+            pass
 
     maptxt = mapfi.read()
     mapfi.close()
@@ -67,7 +79,7 @@ while True:
        
     p1 = asset.player(mapd)
 
-    callback = setup.callset()
+    callback = setup.callset(p1)
 
     while p1.health >= 0:
         if last != p1.posi():
@@ -157,8 +169,6 @@ while True:
                     print()
 
                     p1.pos = asset.position(input("x: "), input("y: "))
-
-                    input()
                 elif com.upper() == "WIN":
                     print("[DEBUG]")
                     print("debug command - not garanteed to work")
@@ -166,8 +176,6 @@ while True:
 
                     p1.won = True
                     p1.health = -1
-
-                    input()
                 elif com.upper() == "LOOSE":
                     print("[DEBUG]")
                     print("debug command - not garanteed to work")
