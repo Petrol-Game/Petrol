@@ -25,7 +25,13 @@ class player:
         print()
 
         self.health = 10
-        self.inventory = inventory('TORCH')
+
+        inv = []
+
+        for i in mapd["SPAWN"]["items"]:
+            inv.append(mapd["SPAWN"]["items"][i].upper())
+
+        self.inventory = inventory(inv)
 
         self.pos = position(int(mapd["SPAWN"]["coord"][0]),int(mapd["SPAWN"]["coord"][2]))
 
@@ -72,7 +78,7 @@ class position:
         return out
 
 class inventory:
-    def __init__(self, *items):
+    def __init__(self, items):
         self.items = []
 
         for itemm in items:
@@ -176,85 +182,3 @@ def petrolcredits(cred):
     time.sleep(1)
     
     print()
-
-#function desined to test that the map works, currently a bug makes it say True all the time, im working on fxing ths
-def checkmap(mapu):
-    done = []
-
-    current = mapu["SPAWN"]["coord"]
-
-    todo = []
-
-    while True:
-        tch = mapu[current]["dirs"]
-
-        for u in tch:
-            i = tch[u]
-
-            c = "0"
-            nc = "pp"
-
-            if i == "N":
-                c = "S"
-                nc = current[0] + "/" + str(int(current[2]) - 1)
-            elif i == "E":
-                c = "W"
-                nc = str(int(current[0]) - 1) + "/" + current[2]
-            elif i == "S":
-                c = "N"
-                nc = current[0] + "/" + str(int(current[2]) + 1)
-            elif i == "W":
-                c = "E"
-                nc = str(int(current[0]) + 1) - "/" + current[2]
-            else:
-                return False
-            
-            if nc not in done:
-                todo.append(nc)
-            try:
-                todo.remove(current)
-            except:
-                pass
-                
-            done.append(current)
-
-            notin = True
-
-            for p in mapu[nc]["dirs"]:
-                pp = mapu[nc]["dirs"][p]
-
-                if pp == c:
-                    notin = False
-
-                    break
-
-            if notin:
-                print(nc)
-
-                return False
-
-            if len(todo) == 0:
-                return True
-            
-            current = todo[0]
-
-def openfi(name, method = "r"):
-    out = None
-
-    try:
-        try:
-            out = open("./" + name.__str__(), method.__str__())
-        except:
-            out = open("./SRC/" + name.__str__(), method.__str__())
-    except Exception as e:
-        print(e)
-
-        out = e
-
-    return out
-
-def clear(): 
-    if os.name == 'nt': 
-        os.system('cls') 
-    else: 
-        os.system('clear') 

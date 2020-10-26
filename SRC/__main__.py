@@ -1,17 +1,21 @@
-print()
-print("Loading Petrol")
-print()
-
 #this launches the code without error prevention, THIS SHOULD ALWAYS BE FALSE IN RELEASE, BETA AND ALPHA VERSIONS
 DODGY_LAUNCH = False
 
 if DODGY_LAUNCH:
+    print()
+    print("Loading Petrol, Dodgy")
+    print()
+
     import petrol
 else:
     load = "Y"
 
     while load.upper() == "Y":
         try:
+            print()
+            print("Loading Petrol")
+            print()
+
             import petrol
         except Exception as e:
             print("ERROR")
