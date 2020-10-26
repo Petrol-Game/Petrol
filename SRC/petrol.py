@@ -1,22 +1,13 @@
 import time
 import random
 import json
+import os
+import importlib
 
 import petrolasset as asset
 
-import ASSETS.MAPS.SCHOOL.setup as setup
-
 while True:
     debug = True
-
-    mapfi = asset.openfi("ASSETS/MAPS/SCHOOL/map.json", "r")
-
-    maptxt = mapfi.read()
-    mapfi.close()
-    mapfi = None
-
-    mapd = json.loads(maptxt)
-    maptxt = None
 
     last = None
 
@@ -41,8 +32,37 @@ while True:
     input()
 
     asset.clear()
+
+    print("MAPS:")
+
+    posmaps = []
+
+    try:
+        posmaps = os.listdir("./ASSETS/MAPS")
+    except:
+        posmaps = os.listdir("./SRC/ASSETS/MAPS")
+
+    i = 0
+
+    for posm in posmaps:
+        print(i.__str__() + ": " + posm)
+
+    print()
+    choice = input("? ")
+
+    mapfi = asset.openfi("ASSETS/MAPS/" + posmaps[int(choice)] + "/map.json", "r")
+    setup = importlib.import_module("ASSETS.MAPS." + posmaps[int(choice)] + ".setup")
+
+    maptxt = mapfi.read()
+    mapfi.close()
+    mapfi = None
+
+    mapd = json.loads(maptxt)
+    maptxt = None
+
+    asset.clear()
     
-    print("playing on map: SCHOOL")
+    print("playing on map: " + posmaps[int(choice)])
     print()
        
     p1 = asset.player(mapd)
