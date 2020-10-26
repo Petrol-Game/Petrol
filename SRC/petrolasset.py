@@ -171,14 +171,35 @@ def petrolcredits(cred):
     print()
     print(c["c"])
 
-    time.sleep(0.5)
+    time.sleep(0.75)
 
     for i in c["creedits"]:
         print()
         print(c["creedits"][i])
 
-        time.sleep(0.5)
+        time.sleep(0.75)
 
     time.sleep(1)
     
     print()
+
+def openfi(name, method = "r"):		
+    out = None		
+
+    try:		
+        try:		
+            out = open("./" + name.__str__(), method.__str__())		
+        except:		
+            out = open("./SRC/" + name.__str__(), method.__str__())		
+    except Exception as e:		
+        print(e)		
+
+        out = e		
+
+    return out		
+
+def clear(): 		
+    if os.name == 'nt': 		
+        os.system('cls') 		
+    else: 		
+        os.system('clear')  
