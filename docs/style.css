@@ -1,15 +1,5 @@
-#title{
-    background-color: white;
-
-    width: 100vw;
-
-    border: none;
-    margin-top: 0px;
-    margin-left: 0px;
-}
-
-#titletext{
-    color: black;
+.nofont{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .top{
@@ -41,10 +31,12 @@ table,th,td{
     border: 1px solid white;
 }
 
-h1,h2,p,td{
+h1,h2,h3,p,td,a{
     color: white;
 
     font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
 }
 
 body{
