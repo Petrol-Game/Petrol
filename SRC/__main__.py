@@ -1,12 +1,15 @@
 #this launches the code without error prevention, THIS SHOULD ALWAYS BE FALSE IN RELEASE, BETA AND ALPHA VERSIONS
 DODGY_LAUNCH = False
 
-if DODGY_LAUNCH:
+def DODGY():
     print()
     print("Loading Petrol, Dodgy")
     print()
 
     import petrol
+
+if DODGY_LAUNCH:
+    DODGY()
 else:
     load = "Y"
 
@@ -35,3 +38,6 @@ else:
             load = input("? ")
 
             print()
+
+if load.upper() == "DODGY":
+    DODGY()
