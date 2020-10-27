@@ -50,7 +50,7 @@ class callset:
 
         if room == "outside":
             print("you are " + room + ", you can go " + gof.__str__())
-        elif room == "concourse":
+        elif room == "concourse" or room == "refectory":
             print("you are in the " + room + ", you can go " + gof.__str__())
         elif room == "corridor":
             print("you are in a " + room + ", you can go " + gof.__str__())
