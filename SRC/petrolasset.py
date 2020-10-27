@@ -191,10 +191,8 @@ def openfi(name, method = "r"):
             out = open("./" + name.__str__(), method.__str__())		
         except:		
             out = open("./SRC/" + name.__str__(), method.__str__())		
-    except Exception as e:		
-        print(e)		
-
-        out = e		
+    except:		
+        out = open("./Petrol" + name.__str__(), method.__str__())	
 
     return out		
 
