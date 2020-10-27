@@ -17,6 +17,8 @@ else:
             print()
 
             import petrol
+
+            load = "N"
         except Exception as e:
             print("ERROR")
             print()

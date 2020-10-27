@@ -6,10 +6,8 @@ import importlib
 
 import petrolasset as asset
 
-while True:
-    debug = True
-
-    last = None
+def title():
+    asset.clear()
 
     logoa = asset.openfi("ASSETS/LOGO/A.txt", "r")
 
@@ -26,10 +24,71 @@ while True:
     logo = None
     
     print()
-    print("[PRESS ENTER TO START]")
+    print("V: 1.0.0 B3")
     print()
+    print("[PRESS ENTER TO START]")
+    print("for extra options type extra")
+    print()
+
+while True:
+    debug = True
+
+    last = None
+
+    title()
     
-    input()
+    a = input()
+
+    if a.upper() == "EXTRA":
+        dodo = True
+
+        while dodo:
+            asset.clear()
+
+            print("[EXTRA]")
+            print()
+
+            print("0: Settings")
+            print("1: Petrol Credits")
+            print("2: Source")
+            print("3: License")
+            print("4: Exit")
+            print()
+
+            a = int(input("? "))
+
+            print()
+
+            if a == 0:
+                print("settings arnt available right now")
+
+                input()
+            elif a == 1:
+                print("Petrol Made by AUnicornWithNoLife")
+
+                input()
+            elif a == 2:
+                print("https://github.com/AUnicornWithNoLife/Petrol")
+
+                input()
+            elif a == 3:
+                li = asset.openfi("ASSETS/LI/LICENSE", "r")
+                print(li.read())
+                li.close()
+
+                input()
+            elif a == 4:
+                asset.clear()
+
+                dodo = False
+            else:
+                print("Error")
+
+                input()
+
+            print()
+
+        print("starting game")
 
     posmaps = []
 
