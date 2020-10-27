@@ -31,7 +31,16 @@ def title():
     print()
 
 while True:
-    debug = True
+    d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
+    de = d.read()[0]
+    d.close()
+
+    debug = None
+
+    if d == "1":
+        debug = True
+    else:
+        debug = False
 
     last = None
 
@@ -60,9 +69,23 @@ while True:
             print()
 
             if a == 0:
-                print("settings arnt available right now")
+                dododo = True
 
-                input()
+                while dododo:
+                    asset.clear()
+                    
+                    print("[settings]")
+                    print()
+                    print("0: Debug - " + str(debug))
+                    print("1: Back")
+                    print()
+
+                    b = int(input("? "))
+
+                    if b == 0:
+                        debug = not(debug)
+                    else:
+                        dododo = False
             elif a == 1:
                 print("Petrol Made by AUnicornWithNoLife")
 
