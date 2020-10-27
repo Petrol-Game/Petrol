@@ -201,3 +201,11 @@ def clear():
         os.system('cls') 		
     else: 		
         os.system('clear')  
+
+def settingsset(ar):
+    out = ""
+
+    for i in ar:
+        out += i + "\n"
+
+    return out

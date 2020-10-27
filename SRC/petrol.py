@@ -6,16 +6,20 @@ import importlib
 
 import petrolasset as asset
 
+# title function shows the title and info at the begining
 def title():
     asset.clear()
 
+    #this loads in the file, defining how many variations of the ascii art their are
     logoa = asset.openfi("ASSETS/LOGO/A.txt", "r")
 
     logoaa = int(logoa.read())
 
     logoa.close()
     logoa = None
+    #-----
 
+    #this loads in one of the ascii art logos and displays it alongside other info
     logo = asset.openfi("ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
 
     print(logo.read())
@@ -29,25 +33,32 @@ def title():
     print("[PRESS ENTER TO START]")
     print("for extra options type extra")
     print()
+    #-----
 
+#this is the main loop the code runs on
 while True:
+    #open the settings file and set the settings acordingly
     d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
-    de = d.read()[0]
+    settings = d.read()
+    settings = settings.split("\n")
+    de = settings[0]
     d.close()
 
     debug = None
 
-    if d == "1":
+    if de == "1":
         debug = True
     else:
         debug = False
 
     last = None
+    #-----
 
     title()
     
     a = input()
 
+    # this is the script for the menu
     if a.upper() == "EXTRA":
         dodo = True
 
@@ -84,7 +95,21 @@ while True:
 
                     if b == 0:
                         debug = not(debug)
-                    else:
+
+                        togo = None
+
+                        if debug:
+                            togo = "1"
+                        else:
+                            togo = "0"
+
+                        togofi = asset.openfi("ASSETS/SETTINGS/config.txt", "w")
+                        settings[0] = togo
+
+                        togofi.write(asset.settingsset(settings))
+
+                        togofi.close()
+                    elif b == 1:
                         dododo = False
             elif a == 1:
                 print("Petrol Made by AUnicornWithNoLife")
@@ -110,9 +135,11 @@ while True:
                 input()
 
             print()
+        #------
 
         print("starting game")
 
+    #this loads in the possible maps and asks the user wich one they want to play
     posmaps = []
 
     try:
@@ -158,11 +185,15 @@ while True:
     
     print("playing on map: " + posmaps[int(choice)])
     print()
-       
+    #-----
+    
+    #this sets up the player variable, and the place where all the custom map code is run
     p1 = asset.player(mapd)
 
     callback = setup.callset(p1)
+    #-----
 
+    #this loop is where the gameplay happens
     while p1.health >= 0:
         if last != p1.posi():
             print()
@@ -272,6 +303,7 @@ while True:
 
     asset.clear()
 
+    #this handles the endgame stuff
     if p1.won:
         out = asset.openfi("ASSETS/END/WIN/0.txt")
 
