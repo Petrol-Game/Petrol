@@ -54,7 +54,7 @@ py==1.9.0
 py2app==0.7.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pycparser==2.19
+pycparser==2.20
 pyOpenSSL==19.1.0
 pyparsing==2.4.7
 pytest==6.1.1
