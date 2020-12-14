@@ -113,6 +113,21 @@ class item:
 
         return out
 
+class info:
+    def __init__(self):
+        datafi = openfi("ASSETS/INFO/INFO.json", "r")
+        data = json.loads(datafi.read())
+        datafi.close()
+
+        self.repo = data["REPO"]
+        self.owner = data["OWNER"]
+        self.version = data["VERSION"]
+
+    def __str__(self):
+        out = "REPO: " +  self.repo + ", OWNER: " + self.owner + ", VERSION: " + self.version
+
+        return out
+
 def settogo(stuff):
     out = []
 

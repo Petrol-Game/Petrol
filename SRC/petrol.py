@@ -7,7 +7,7 @@ import importlib
 import petrolasset as asset
 
 # title function shows the title and info at the begining
-def title():
+def title(version):
     asset.clear()
 
     #this loads in the file, defining how many variations of the ascii art their are
@@ -28,7 +28,7 @@ def title():
     logo = None
     
     print()
-    print("V: 1.0.0 B3")
+    print("V: " + version)
     print()
     print("[PRESS ENTER TO START]")
     print("for extra options type extra")
@@ -54,7 +54,9 @@ while True:
     last = None
     #-----
 
-    title()
+    info = asset.info()
+
+    title(info.version)
     
     a = input()
 
@@ -72,7 +74,8 @@ while True:
             print("1: Petrol Credits")
             print("2: Source")
             print("3: License")
-            print("4: Exit")
+            print("4: Info")
+            print("5: Exit")
             print()
 
             a = int(input("? "))
@@ -116,7 +119,7 @@ while True:
 
                 input()
             elif a == 2:
-                print("https://github.com/AUnicornWithNoLife/Petrol")
+                print("https://github.com/Petrol-Game/Petrol")
 
                 input()
             elif a == 3:
@@ -126,6 +129,10 @@ while True:
 
                 input()
             elif a == 4:
+                print(info)
+
+                input()
+            elif a == 5:
                 asset.clear()
 
                 dodo = False
