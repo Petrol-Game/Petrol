@@ -1,7 +1,7 @@
 
 # Petrol
 
-![Python package](https://github.com/AUnicornWithNoLife/Petrol/workflows/Python%20package/badge.svg?branch=main)
+![Python application](https://github.com/Petrol-Game/Petrol/workflows/Python%20application/badge.svg)
 ![CodeQL](https://github.com/AUnicornWithNoLife/Petrol/workflows/CodeQL/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/aunicornwithnolife/petrol/badge)](https://www.codefactor.io/repository/github/aunicornwithnolife/petrol)
 
