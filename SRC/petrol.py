@@ -9,7 +9,7 @@ import sys
 import petrolasset as asset
 
 # title function shows the title and info at the begining
-def title():
+def title(version):
     if platform.system() == "Windows":
         asset.clear()
 
@@ -35,7 +35,7 @@ def title():
         logo = None
     
     print()
-    print("V: 1.0.0 B4")
+    print("V: " + version)
     print()
     print("[PRESS ENTER TO START]")
     print("for extra options type extra")
@@ -69,8 +69,10 @@ while True:
     d.close()
 
     #---
-    
-    title()
+
+    info = asset.info()
+
+    title(info.version)
     
     a = input()
 
@@ -89,7 +91,8 @@ while True:
             print("2: Source")
             print("3: License")
             print("4: Stats")
-            print("5: Exit")
+            print("5: Info")
+            print("6: Exit")
             print()
 
             a = int(input("? "))
@@ -153,6 +156,10 @@ while True:
 
                 input()
             elif a == 5:
+                print(info)
+
+                input()
+            elif a == 6:
                 asset.clear()
 
                 dodo = False
