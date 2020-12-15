@@ -1,873 +1,874 @@
 {
 	"0/0":{
 		"name":"computing",
-		"dirs":{
-			"0":"E"
-		},
-		"items":{
-			"0":"Broken Keyboard"
-		}
+		"dirs":[
+			"E"
+		],
+		"items":[
+			"Broken Keyboard"
+		]
 	},
 	"1/0":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"1/1":{
 		"name":"english",
-		"dirs":{
-			"0":"N",
-			"1":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"1/2":{
 		"name":"english",
-		"dirs":{
-			"0":"N",
-			"1":"S"
-		},
-		"items":{
-			"0":"Baseball Bat"
-		}
+		"dirs":[
+			"N",
+			"S"
+		],
+		"items":[
+			"Baseball Bat"
+		]
 	},
 	"1/3":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"2/0":{
 		"name":"geography",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"Pikachu"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"Pikachu"
+		]
 	},
 	"2/3":{
 		"name":"history",
-		"dirs":{
-			"0":"W",
-			"1":"E"
-		},
-		"items":{
+		"dirs":[
+			"W",
+			"E"
+		],
+		"items":[
 		
-		}
+		]
 	},
 	"3/0":{
 		"name":"Geography",
-		"dirs":{
-			"0":"S",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"S",
+			"W"
+		],
+		"items":[
 		
-		}
+		]
 	},
 	"3/1":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
-			"0":"apple"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
+			"apple"
+		]
 	},
 	"3/2":{
 		"name":"concourse",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
-			"0":"paper airplane"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
+			"paper airplane"
+		]
 	},
 	"3/3":{
 		"name":"history",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
-			"0":"old scroll"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
+			"old scroll"
+		]
 	},
 	"4/1":{
 		"name":"refectory",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
-			"0":"apple core"
-		}
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
+			"apple core"
+		]
 	},
 	"4/2":{
 		"name":"concourse",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"4/3":{
 		"name":"history",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"5/1":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 
-		}
+		]
 	},
 	"5/2":{
 		"name":"concourse",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
-			"0":"trash"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
+			"trash"
+		]
 	},
 	"5/3":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"5/4":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"5/5":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"w"
-		},
-		"items":{
-			"0":"trash"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"w"
+		],
+		"items":[
+			"trash"
+		]
 	},
 	"5/6":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"6/1":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"6/2":{
 		"name":"concourse",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"6/3":{
 		"name":"concourse",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"6/4":{
 		"name":"music",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"guitar"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"guitar"
+		]
 	},
 	"6/5":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"6/6":{
 		"name":"music",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
-			"0":"piano"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
+			"piano"
+		]
 	},
 	"7/1":{
 		"name":"gym",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"7/2":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"7/3":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"7/4":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"7/5":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"7/6":{
 		"name":"music",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"8/1":{
 		"name":"gym",
-		"dirs":{
-			"0":"S",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"8/2":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
-			"0":"leaf"
-		}
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
+			"leaf"
+		]
 	},
 	"8/3":{
 		"name":"reception",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"8/4":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
-			"0":"flyer"
-		}
+		"dirs":[
+			"N",
+			"S",
+			"W"
+		],
+		"items":[
+			"flyer"
+		]
 	},
 	"8/5":{
 		"name":"hall",
-		"dirs":{
-			"0":"N",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
-			"0":"electric soldering iron"
-		}
+		"dirs":[
+			"N",
+			"S",
+			"W"
+		],
+		"items":[
+			"electric soldering iron"
+		]
 	},
 	"8/6":{
 		"name":"hall",
-		"dirs":{
-			"0":"N",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"9/2":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"9/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"9/4":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"9/5":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"9/6":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"9/7":{
 		"name":"starting",
-		"dirs":{
-			"0":"N"
-		},
-		"items":{
+		"dirs":[
+			"N"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"10/1":{
 		"name":"pe",
-		"dirs":{
-			"0":"S"
-		},
-		"items":{
+		"dirs":[
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"10/2":{
 		"name":"pe",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"10/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"10/4":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"10/5":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"10/6":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"spanish text book"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"spanish text book"
+		]
 	},
 	"11/2":{
 		"name":"pe",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"11/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"11/4":{
 		"name":"languages",
-		"dirs":{
-			"0":"N",
-			"1":"S"
-		},
-		"items":{
-			"0":"dictionary"
-		}
+		"dirs":[
+			"N",
+			"S"
+		],
+		"items":[
+			"dictionary"
+		]
 	},
 	"11/5":{
 		"name":"languages",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"11/6":{
 		"name":"corridor",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"12/2":{
 		"name":"pe",
-		"dirs":{
-			"0":"W"
-		},
-		"items":{
-			"0":"whistle"
-		}
+		"dirs":[
+			"W"
+		],
+		"items":[
+			"whistle"
+		]
 	},
 	"12/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"leaf"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"leaf"
+		]
 	},
 	"12/4":{
 		"name":"maths",
-		"dirs":{
-			"0":"S"
-		},
-		"items":{
-			"0":"set square"
-		}
+		"dirs":[
+			"S"
+		],
+		"items":[
+			"set square"
+		]
 	},
 	"12/5":{
 		"name":"maths",
-		"dirs":{
-			"0":"N",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"12/6":{
 		"name":"corridor",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"13/1":{
 		"name":"science",
-		"dirs":{
-			"0":"S"
-		},
-		"items":{
+		"dirs":[
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"13/2":{
 		"name":"science",
-		"dirs":{
-			"0":"N",
-			"1":"E"
-		},
-		"items":{
-			"0":"bunsen burner",
-			"1":"matches"
-		}
+		"dirs":[
+			"N",
+			"E"
+		],
+		"items":[
+			"bunsen burner",
+			"matches"
+		]
 	},
 	"13/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"13/6":{
 		"name":"staff",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"coffer cup"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"coffer cup"
+		]
 	},
 	"14/1":{
 		"name":"science office",
-		"dirs":{
-			"0":"E"
-		},
-		"items":{
-			"0":"shutdown button"
-		}
+		"dirs":[
+			"E"
+		],
+		"items":[
+			"shutdown button"
+		]
 	},
 	"14/2":{
 		"name":"science",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"14/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"14/4":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"S"
-		},
-		"items":{
-			"0":"smashed glass"
-		}
+		"dirs":[
+			"N",
+			"S"
+		],
+		"items":[
+			"smashed glass"
+		]
 	},
 	"14/5":{
 		"name":"staff",
-		"dirs":{
-			"0":"N",
-			"1":"S"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"S"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"14/6":{
 		"name":"staff",
-		"dirs":{
-			"0":"N",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"15/1":{
 		"name":"science",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
-			"0":"paper"
-		}
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
+			"paper"
+		]
 	},
 	"15/2":{
 		"name":"science",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"15/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"S",
-			"3":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"15/4":{
 		"name":"dt",
-		"dirs":{
-			"0":"N",
-			"1":"E"
-		},
-		"items":{
-			"0":"saw"
-		}
+		"dirs":[
+			"N",
+			"E"
+		],
+		"items":[
+			"saw"
+		]
 	},
 	"16/1":{
 		"name":"science",
-		"dirs":{
-			"0":"E",
-			"1":"S",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"E",
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"16/2":{
 		"name":"science",
-		"dirs":{
-			"0":"N",
-			"1":"E",
-			"2":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"E",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"16/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"paper"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"paper"
+		]
 	},
 	"16/4":{
 		"name":"dt",
-		"dirs":{
-			"0":"E",
-			"1":"W"
-		},
-		"items":{
-			"0":"knife"
-		}
+		"dirs":[
+			"E",
+			"W"
+		],
+		"items":[
+			"knife"
+		]
 	},
 	"17/1":{
 		"name":"science",
-		"dirs":{
-			"0":"S",
-			"1":"W"
-		},
-		"items":{
-			"0":"lighter"
-		}
+		"dirs":[
+			"S",
+			"W"
+		],
+		"items":[
+			"lighter"
+		]
 	},
 	"17/2":{
 		"name":"science",
-		"dirs":{
-			"0":"N",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"N",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"17/3":{
 		"name":"outside",
-		"dirs":{
-			"0":"S",
-			"1":"W"
-		},
-		"items":{
+		"dirs":[
+			"S",
+			"W"
+		],
+		"items":[
 			
-		}
+		]
 	},
 	"17/4":{
 		"name":"dt",
-		"dirs":{
-			"0":"N",
-			"1":"W"
-		},
-		"items":{
-			"0":"sand paper"
-		}
+		"dirs":[
+			"N",
+			"W"
+		],
+		"items":[
+			"sand paper"
+		]
 	},
 	"SPAWN":{
 		"coord":"9/7",
 		"lives":"1",
 		"autorespawn":"False",
-		"items":{
-			"0":"torch"
-		}
+		"items":[
+			"torch",
+			"knife"
+		]
 	}
 }

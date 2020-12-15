@@ -3,32 +3,39 @@ import random
 import json
 import os
 import importlib
+import platform
+import sys
 
 import petrolasset as asset
 
 # title function shows the title and info at the begining
-def title(version):
-    asset.clear()
+def title():
+    if platform.system() == "Windows":
+        asset.clear()
 
-    #this loads in the file, defining how many variations of the ascii art their are
-    logoa = asset.openfi("ASSETS/LOGO/A.txt", "r")
+        print("Petrol")
+    else:
+        asset.clear()
 
-    logoaa = int(logoa.read())
+        #this loads in the file, defining how many variations of the ascii art their are
+        logoa = asset.openfi("ASSETS/LOGO/A.txt", "r")
 
-    logoa.close()
-    logoa = None
-    #-----
+        logoaa = int(logoa.read())
 
-    #this loads in one of the ascii art logos and displays it alongside other info
-    logo = asset.openfi("ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
+        logoa.close()
+        logoa = None
+        #-----
 
-    print(logo.read())
+        #this loads in one of the ascii art logos and displays it alongside other info
+        logo = asset.openfi("ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
 
-    logo.close()
-    logo = None
+        print(logo.read())
+
+        logo.close()
+        logo = None
     
     print()
-    print("V: " + version)
+    print("V: 1.0.0 B4")
     print()
     print("[PRESS ENTER TO START]")
     print("for extra options type extra")
@@ -44,14 +51,26 @@ while True:
     de = settings[0]
     d.close()
 
-    debug = bool(de)
+    debug = None
+
+    if de == "1":
+        debug = True
+    else:
+        debug = False
 
     last = None
     #-----
 
-    info = asset.info()
+    #open STATS file
 
-    title(info.version)
+    d = asset.openfi("ASSETS/STATS/data.txt", "r")
+    stats = d.read()
+    stats = asset.stats(stats.split(";")[0], stats.split(";")[1])
+    d.close()
+
+    #---
+    
+    title()
     
     a = input()
 
@@ -69,7 +88,7 @@ while True:
             print("1: Petrol Credits")
             print("2: Source")
             print("3: License")
-            print("4: Info")
+            print("4: Stats")
             print("5: Exit")
             print()
 
@@ -102,19 +121,22 @@ while True:
                             togo = "0"
 
                         togofi = asset.openfi("ASSETS/SETTINGS/config.txt", "w")
-                        settings[0] = togo
+                        settings = togo.split(';')
 
                         togofi.write(asset.settingsset(settings))
 
                         togofi.close()
                     elif b == 1:
                         dododo = False
+                    else:
+                        print("Error")
+                    
             elif a == 1:
                 print("Petrol Made by AUnicornWithNoLife")
 
                 input()
             elif a == 2:
-                print("https://github.com/Petrol-Game/Petrol")
+                print("https://github.com/AUnicornWithNoLife/Petrol")
 
                 input()
             elif a == 3:
@@ -124,7 +146,10 @@ while True:
 
                 input()
             elif a == 4:
-                print(info)
+                asset.clear()
+                
+                print("Wins: " + str(stats.win))
+                print("Looses: " + str(stats.win))
 
                 input()
             elif a == 5:
@@ -173,7 +198,8 @@ while True:
             setup = importlib.import_module("ASSETS.MAPS." + posmaps[int(choice)] + ".setup")
 
             possib = False
-        except:
+        except Exception as e:
+            print(e)
             pass
 
     maptxt = mapfi.read()
@@ -213,7 +239,7 @@ while True:
             posib = []
 
             for u in mapd[p1.posi()]["dirs"]:
-                posib.append(mapd[p1.posi()]["dirs"][u])
+                posib.append(u)
 
             posib = asset.settogo(posib)
 
@@ -238,15 +264,16 @@ while True:
 
             for item in mapd[p1.posi()]["items"]:
                 try:
-                    if mapd[p1.posi()]["items"][item].upper() == com[7:].upper():
-                        p1.inventory.items.append(asset.item(mapd[p1.posi()]["items"][item].upper()))
-                        mapd[p1.posi()]["items"][item] = None
+                    if item.upper() == com[7:].upper():
+                        p1.inventory.items.append(item.upper())
+                        mapd[p1.posi()]["items"] = None
 
                         print("picked up " + com[7:].upper())
                     else:
                         print("sorry could not find " + com[7:].upper())
                 except:
                     print("sorry could not find " + com[7:].upper())
+                    print(eee)
         elif com[:3].upper() == "USE":
             pos = p1.inventory.items
             cando = False
@@ -274,6 +301,13 @@ while True:
             asset.clear()
 
             last = None
+        elif com[:5].upper() == "SPEAK":
+            callback.speak(p1,com[6:])
+        elif com.upper() == "END":
+            print("Exiting")
+            print()
+            
+            sys.exit()
         else:
             # all debug commands go here, they are only execed when debug flag is set, this is disabled in release builds.
 
@@ -306,18 +340,35 @@ while True:
     asset.clear()
 
     #this handles the endgame stuff
+    print()
+    
     if p1.won:
-        out = asset.openfi("ASSETS/END/WIN/0.txt")
-
-        print(out.read())
-
-        out.close()
-    else:
-        out = asset.openfi("ASSETS/END/LOST/0.txt")
+        stats.addwin()
         
-        print(out.read())
+        if platform.system() == "Windows":
+            print("You Won!")
+        else:
+            out = asset.openfi("ASSETS/END/WIN/0.txt")
 
-        out.close()
+            print(out.read())
+
+            out.close()
+    else:
+        stats.addloose()
+        
+        if platform.system() == "Windows":
+            print("You Lost!")
+        else:
+            out = asset.openfi("ASSETS/END/LOST/0.txt")
+
+            print(out.read())
+
+            out.close()
+
+    d = open("ASSETS/STATS/data.txt", "w")
+    stat = str(stats.win) + ";" + str(stats.loose)
+    d.write(stat)
+    d.close()
 
     print()
     input()
