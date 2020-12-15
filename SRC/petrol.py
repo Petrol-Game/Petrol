@@ -275,7 +275,6 @@ while True:
                         print("sorry could not find " + com[7:].upper())
                 except:
                     print("sorry could not find " + com[7:].upper())
-                    print(eee)
         elif com[:3].upper() == "USE":
             pos = p1.inventory.items
             cando = False
