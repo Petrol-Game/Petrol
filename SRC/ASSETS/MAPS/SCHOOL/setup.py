@@ -32,38 +32,49 @@ class callset:
         go = []
 
         for u in mapp[coords]["dirs"]:
-            i = mapp[coords]["dirs"][u]
-
-            if len(go) >= 1:
-                go.append(", " + i.__str__())
-            else:
-                go.append(i.__str__())
+            
+            go.append(u.__str__())
         
-        gofa = asset.settoin(go)
-
         gof = ""
-
-        for i in gofa:
-            gof += i.__str__()
+        
+        for i in go:
+            coo = asset.position(coords.split("/")[0],coords.split("/")[1])
+            coop = coo
+            
+            if i == "N":
+                coop.gonorth()
+                
+                gof += ", to the north their is " + mapp[coop.__str__()]["name"]
+            if i == "E":
+                coop.goeast()
+                
+                gof += ", to the east their is " + mapp[coop.__str__()]["name"]
+            if i == "S":
+                coop.gosouth()
+                
+                gof += ", to the south their is " + mapp[coop.__str__()]["name"]
+            if i == "W":
+                coop.gowest()
+                
+                gof += ", to the west their is " + mapp[coop.__str__()]["name"]
 
         room = str(mapp[coords]["name"])
 
         if room == "outside":
-            print("you are " + room + ", you can go " + gof.__str__())
+            print("you are " + room + gof)
         elif room == "concourse" or room == "refectory":
-            print("you are in the " + room + ", you can go " + gof.__str__())
+            print("you are in the " + room + gof)
         elif room == "corridor":
-            print("you are in a " + room + ", you can go " + gof.__str__())
+            print("you are in a " + room + ", " + gof)
         else:
-            print("you are in the " + room + " room, you can go " + gof.__str__())
+            print("you are in the " + room + " room" + gof)
 
         it = []
 
         try:
             for item in mapp[coords]["items"]:
-                ite = mapp[coords]["items"][item]
 
-                it.append(ite)
+                it.append(item)
         except:
             pass
         
@@ -146,3 +157,19 @@ class callset:
             print("you ate an apple, your health is now at, " + player.health.__str__())
         else:
             print("sorry you cannot interact with this object")
+
+    def speak(self, player, to):
+        inroom = False
+
+        for npc in self.npcs:
+            if npc.name.upper() == to.upper():
+                if npc.position.x == player.pos.x:
+                    if npc.position.y == player.pos.y:
+                        inroom = True
+
+                        break
+
+        if inroom:
+            print("Sorry, " + to.upper() + " doesnt want to talk to you right now")
+        else:
+            print("Sorry, " + to.upper() + " isnt in this room")

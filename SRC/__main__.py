@@ -1,9 +1,10 @@
-#this launches the code without error prevention, THIS SHOULD ALWAYS BE FALSE IN RELEASE, BETA AND ALPHA VERSIONS
-DODGY_LAUNCH = False
+#this file handles the launching of the code
+
+DODGY_LAUNCH = True #this launches the code without error prevention, THIS SHOULD ALWAYS BE FALSE IN RELEASE, BETA AND ALPHA VERSIONS
 
 def DODGY():
     print()
-    print("Loading Petrol, Dodgy")
+    print("Launching Petrol, DODGY")
     print()
 
     import petrol
@@ -16,7 +17,7 @@ else:
     while load.upper() == "Y":
         try:
             print()
-            print("Loading Petrol")
+            print("Launching Petrol")
             print()
 
             import petrol

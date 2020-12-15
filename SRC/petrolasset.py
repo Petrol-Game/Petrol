@@ -29,7 +29,7 @@ class player:
         inv = []
 
         for i in mapd["SPAWN"]["items"]:
-            inv.append(mapd["SPAWN"]["items"][i].upper())
+            inv.append(i.upper())
 
         self.inventory = inventory(inv)
 
@@ -82,7 +82,7 @@ class inventory:
         self.items = []
 
         for itemm in items:
-            self.items.append(item(itemm))
+            self.items.append(itemm)
 
     def size(self):
         out = len(self.items)
@@ -104,27 +104,24 @@ class inventory:
 
         return out
 
-class item:
-    def __init__(self, code):
-        self.code = code.__str__()
+class stats:
+    def __init__(self, win, loose):
+        self.win = int(win)
+        self.loose = int(loose)
 
-    def __str__(self):
-        out = self.code.__str__()
+    def addwin(self):
+        self.win += 1
+
+    def addloose(self):
+        self.loose += 1
+
+    def total(self):
+        out = self.win - self.loose
 
         return out
 
-class info:
-    def __init__(self):
-        datafi = openfi("ASSETS/INFO/INFO.json", "r")
-        data = json.loads(datafi.read())
-        datafi.close()
-
-        self.repo = data["REPO"]
-        self.owner = data["OWNER"]
-        self.version = data["VERSION"]
-
     def __str__(self):
-        out = "REPO: " +  self.repo + ", OWNER: " + self.owner + ", VERSION: " + self.version
+        out = str(self.win) + " - " + str(self.loose)
 
         return out
 
