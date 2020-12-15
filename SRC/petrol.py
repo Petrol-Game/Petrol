@@ -51,12 +51,7 @@ while True:
     de = settings[0]
     d.close()
 
-    debug = None
-
-    if de == "1":
-        debug = True
-    else:
-        debug = False
+    debug = bool(de)
 
     last = None
     #-----
