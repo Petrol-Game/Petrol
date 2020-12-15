@@ -1,0 +1,11 @@
+{
+    "X/Y":{
+		"name":"Room Name",
+		"dirs":[
+			"Directions you can move from the room"
+		],
+		"items":[
+			"Items in the room"
+		]
+	}
+}
