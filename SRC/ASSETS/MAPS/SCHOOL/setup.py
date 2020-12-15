@@ -44,30 +44,23 @@ class callset:
             if i == "N":
                 coop.gonorth()
                 
-                gof += ", to the north their is " + mapp[coop.__str__()]["name"]
+                gof += ", to the north their is " + room_parse(mapp[coop.__str__()]["name"])
             if i == "E":
                 coop.goeast()
                 
-                gof += ", to the east their is " + mapp[coop.__str__()]["name"]
+                gof += ", to the east their is " + room_parse(mapp[coop.__str__()]["name"])
             if i == "S":
                 coop.gosouth()
                 
-                gof += ", to the south their is " + mapp[coop.__str__()]["name"]
+                gof += ", to the south their is " + room_parse(mapp[coop.__str__()]["name"])
             if i == "W":
                 coop.gowest()
                 
-                gof += ", to the west their is " + mapp[coop.__str__()]["name"]
+                gof += ", to the west their is " + room_parse(mapp[coop.__str__()]["name"])
 
         room = str(mapp[coords]["name"])
 
-        if room == "outside":
-            print("you are " + room + gof)
-        elif room == "concourse" or room == "refectory":
-            print("you are in the " + room + gof)
-        elif room == "corridor":
-            print("you are in a " + room + ", " + gof)
-        else:
-            print("you are in the " + room + " room" + gof)
+        print("you are " + room_parse(room) + gof)
 
         it = []
 
@@ -173,3 +166,13 @@ class callset:
             print("Sorry, " + to.upper() + " doesnt want to talk to you right now")
         else:
             print("Sorry, " + to.upper() + " isnt in this room")
+
+def room_parse(room):
+    if room == "outside":
+         return room
+    elif room == "concourse" or room == "refectory":
+        return "the " + room
+    elif room == "corridor":
+        return "a " + room
+    else:
+        return "the " + room + " room"
