@@ -40,5 +40,5 @@ else:
 
             print()
 
-if load.upper() == "DODGY":
-    DODGY()
+    if load.upper() == "DODGY":
+        DODGY()

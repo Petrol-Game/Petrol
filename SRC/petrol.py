@@ -6,6 +6,12 @@ import platform
 import sys
 
 import petrolasset as asset
+import log
+
+# create log, and create event for load
+
+logdata = log.log()
+logdata.add("Loaded Petrol")
 
 # title function shows the title and info at the begining
 def title(version):
@@ -44,23 +50,40 @@ def title(version):
 #this is the main loop the code runs on
 while True:
     #open the settings file and set the settings acordingly
-    d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
-    settings = d.read()
-    settings = settings.split("\n")
-    de = settings[0]
-    d.close()
 
-    debug = bool(de)
+    try:
+        d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
+        settings = d.read()
+        settings = settings.split("\n")
+        de = settings[0]
+        d.close()
 
-    last = None
+        debug = bool(de)
+
+        last = None
+
+        logdata.add("Settings loaded in")
+    except:
+        logdata.add("Failed loading settings", "FATAL")
+
+        break
+
     #-----
 
     #open STATS file
 
-    d = asset.openfi("ASSETS/STATS/data.txt", "r")
-    stats = d.read()
-    stats = asset.stats(stats.split(";")[0], stats.split(";")[1])
-    d.close()
+    try:
+        #d = asset.openfi("ASSETS/STATS/data.txt", "r")
+        d = asset.openfi("ASSETS/STATS/tt.txt", "r")
+        stats = d.read()
+        stats = asset.stats(stats.split(";")[0], stats.split(";")[1])
+        d.close()
+
+        logdata.add("Loaded stats")
+    except:
+        logdata.add("Failed loading stats", "FATAL")
+
+        break
 
     #---
 
@@ -72,154 +95,179 @@ while True:
 
     # this is the script for the menu
     if a.upper() == "EXTRA":
-        dodo = True
+        try:
+            logdata.add("Settings called")
 
-        while dodo:
-            asset.clear()
+            dodo = True
 
-            print("[EXTRA]")
-            print()
+            while dodo:
+                asset.clear()
 
-            print("0: Settings")
-            print("1: Petrol Credits")
-            print("2: Source")
-            print("3: License")
-            print("4: Stats")
-            print("5: Info")
-            print("6: Exit")
-            print()
+                print("[EXTRA]")
+                print()
 
-            a = int(input("? "))
+                print("0: Settings")
+                print("1: Petrol Credits")
+                print("2: Source")
+                print("3: License")
+                print("4: Stats")
+                print("5: Info")
+                print("6: Exit")
+                print()
 
-            print()
+                a = int(input("? "))
 
-            if a == 0:
-                dododo = True
+                print()
 
-                while dododo:
+                if a == 0:
+                    dododo = True
+
+                    while dododo:
+                        asset.clear()
+                        
+                        print("[settings]")
+                        print()
+                        print("0: Debug - " + str(debug))
+                        print("1: Back")
+                        print()
+
+                        b = int(input("? "))
+
+                        if b == 0:
+                            debug = not(debug)
+
+                            togo = None
+
+                            if debug:
+                                togo = "1"
+                            else:
+                                togo = "0"
+
+                            togofi = asset.openfi("ASSETS/SETTINGS/config.txt", "w")
+                            settings = togo.split(';')
+
+                            togofi.write(asset.settingsset(settings))
+
+                            togofi.close()
+                        elif b == 1:
+                            dododo = False
+                        else:
+                            print("Error")
+                        
+                elif a == 1:
+                    print("Petrol Made by AUnicornWithNoLife")
+
+                    input()
+                elif a == 2:
+                    print("https://github.com/AUnicornWithNoLife/Petrol")
+
+                    input()
+                elif a == 3:
+                    li = asset.openfi("ASSETS/LI/LICENSE", "r")
+                    print(li.read())
+                    li.close()
+
+                    input()
+                elif a == 4:
                     asset.clear()
                     
-                    print("[settings]")
-                    print()
-                    print("0: Debug - " + str(debug))
-                    print("1: Back")
-                    print()
+                    print("Wins: " + str(stats.win))
+                    print("Looses: " + str(stats.win))
 
-                    b = int(input("? "))
+                    input()
+                elif a == 5:
+                    print(info)
 
-                    if b == 0:
-                        debug = not(debug)
+                    input()
+                elif a == 6:
+                    asset.clear()
 
-                        togo = None
+                    dodo = False
+                else:
+                    print("Error")
 
-                        if debug:
-                            togo = "1"
-                        else:
-                            togo = "0"
+                    input()
 
-                        togofi = asset.openfi("ASSETS/SETTINGS/config.txt", "w")
-                        settings = togo.split(';')
+                print()
+        except:
+            logdata.add("Settings failed", "FATAL")
 
-                        togofi.write(asset.settingsset(settings))
+            break
 
-                        togofi.close()
-                    elif b == 1:
-                        dododo = False
-                    else:
-                        print("Error")
-                    
-            elif a == 1:
-                print("Petrol Made by AUnicornWithNoLife")
-
-                input()
-            elif a == 2:
-                print("https://github.com/AUnicornWithNoLife/Petrol")
-
-                input()
-            elif a == 3:
-                li = asset.openfi("ASSETS/LI/LICENSE", "r")
-                print(li.read())
-                li.close()
-
-                input()
-            elif a == 4:
-                asset.clear()
-                
-                print("Wins: " + str(stats.win))
-                print("Looses: " + str(stats.win))
-
-                input()
-            elif a == 5:
-                print(info)
-
-                input()
-            elif a == 6:
-                asset.clear()
-
-                dodo = False
-            else:
-                print("Error")
-
-                input()
-
-            print()
         #------
 
         print("starting game")
 
     #this loads in the possible maps and asks the user wich one they want to play
-    posmaps = []
-
-    try:
-        posmaps = os.listdir("./ASSETS/MAPS")
-    except:
-        posmaps = os.listdir("./SRC/ASSETS/MAPS")
 
     choice = None
 
-    possib = True
-
-    while possib:
-        asset.clear()
-
-        print("MAPS:")
-
-        i = 0
-
-        for posm in posmaps:
-            print(i.__str__() + ": " + posm)
-
-            i += 1
-
-        print()
-        choice = input("? ")
+    try:
+        posmaps = []
 
         try:
-            mapfi = asset.openfi("ASSETS/MAPS/" + posmaps[int(choice)] + "/map.json", "r")
-            setup = importlib.import_module("ASSETS.MAPS." + posmaps[int(choice)] + ".setup")
+            posmaps = os.listdir("./ASSETS/MAPS")
+        except:
+            posmaps = os.listdir("./SRC/ASSETS/MAPS")
 
-            possib = False
-        except Exception as e:
-            print(e)
-            pass
+        possib = True
 
-    maptxt = mapfi.read()
-    mapfi.close()
-    mapfi = None
+        while possib:
+            asset.clear()
 
-    mapd = json.loads(maptxt)
-    maptxt = None
+            print("MAPS:")
 
-    asset.clear()
-    
-    print("playing on map: " + posmaps[int(choice)])
-    print()
+            i = 0
+
+            for posm in posmaps:
+                print(i.__str__() + ": " + posm)
+
+                i += 1
+
+            print()
+            choice = input("? ")
+
+            try:
+                mapfi = asset.openfi("ASSETS/MAPS/" + posmaps[int(choice)] + "/map.json", "r")
+                setup = importlib.import_module("ASSETS.MAPS." + posmaps[int(choice)] + ".setup")
+
+                possib = False
+            except Exception as e:
+                print(e)
+                pass
+
+        maptxt = mapfi.read()
+        mapfi.close()
+        mapfi = None
+
+        mapd = json.loads(maptxt)
+        maptxt = None
+
+        asset.clear()
+        
+        print("playing on map: " + posmaps[int(choice)])
+        print()
+
+        logdata.add("Chossen map: " + choice)
+    except:
+        logdata.add("Failed loading map")
+
+        break
     #-----
     
     #this sets up the player variable, and the place where all the custom map code is run
-    p1 = asset.player(mapd)
 
-    callback = setup.callset(p1)
+    try:
+        p1 = asset.player(mapd)
+
+        callback = setup.callset(p1)
+
+        logdata.add("Player setup")
+    except:
+        logdata.add("Failed setting up Player", "FATAL")
+
+        break
+
     #-----
 
     #this loop is where the gameplay happens
@@ -235,6 +283,8 @@ while True:
         last = p1.posi()
 
         com = input(">> ")
+
+        logdata.add("Player command: " + com)
 
         if com[:2].upper() == "GO":
             posib = []
