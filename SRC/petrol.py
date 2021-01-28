@@ -73,8 +73,8 @@ while True:
     #open STATS file
 
     try:
-        #d = asset.openfi("ASSETS/STATS/data.txt", "r")
-        d = asset.openfi("ASSETS/STATS/tt.txt", "r")
+        d = asset.openfi("ASSETS/STATS/data.txt", "r")
+        #d = asset.openfi("ASSETS/STATS/tt.txt", "r")
         stats = d.read()
         stats = asset.stats(stats.split(";")[0], stats.split(";")[1])
         d.close()
@@ -353,6 +353,20 @@ while True:
             last = None
         elif com[:5].upper() == "SPEAK":
             callback.speak(p1,com[6:])
+        elif com[:4].upper() == "DROP":
+            did = False
+
+            for item in p1.inventory.items:
+                if item.__str__().upper() == com[5:].upper():
+                    did = True
+
+                    p1.inventory.items.remove(item.__str__())
+                    mapd[p1.pos.__str__()]["items"].append(item.__str__())
+
+                    print("Dropped")
+
+                if not(did):
+                    print("Cound not drop " + com[5:].upper())
         elif com.upper() == "END":
             print("Exiting")
             print()

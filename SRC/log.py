@@ -1,8 +1,15 @@
 from datetime import datetime
+import os
+import errno
 
-import petrolasset as asset
+loczip = "/tmp/Petrol/LOG/runtime.log"
 
-loc = "ASSETS/LOG/runtime.log"
+if not os.path.exists(os.path.dirname(loczip)):
+    try:
+        os.makedirs(os.path.dirname(loczip))
+    except OSError as exc: # Guard against race condition
+        if exc.errno != errno.EEXIST:
+            raise
 
 class entry:
     def __init__(self, info, level = "INFO"):
@@ -36,7 +43,7 @@ class log:
         return ret
     
 def save(data):
-    fi = asset.openfi(loc, "w")
+    fi = open(loczip, "w")
 
     fi.write(data.__str__())
 
