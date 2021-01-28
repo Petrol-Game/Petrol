@@ -1,7 +1,7 @@
 #this file handles the launching of the code
 #changes should only be made to this if neccesary
 
-DODGY_LAUNCH = True #this launches the code without error prevention, THIS SHOULD ALWAYS BE FALSE IN RELEASE, BETA AND ALPHA VERSIONS
+DODGY_LAUNCH = False #this launches the code without error prevention, THIS SHOULD ALWAYS BE FALSE IN RELEASE, BETA AND ALPHA VERSIONS
 
 def DODGY():
     print()
