@@ -6,12 +6,24 @@ import platform
 import sys
 
 import petrolasset as asset
-import log
 
-# create log, and create event for load
+# log only works on UNIX based systems, do not enable on release
 
-logdata = log.log()
-logdata.add("Loaded Petrol")
+dolog = False
+
+logdata = ""
+
+if dolog:
+    import log
+
+    # create log, and create event for load
+
+    logdata = log.log()
+    addlog("Loaded Petrol")
+
+def addlog(msg, ltype = "INFO"):
+    if dolog:
+        addlog(msg, ltype)
 
 # title function shows the title and info at the begining
 def title(version):
@@ -62,9 +74,9 @@ while True:
 
         last = None
 
-        logdata.add("Settings loaded in")
+        addlog("Settings loaded in")
     except:
-        logdata.add("Failed loading settings", "FATAL")
+        addlog("Failed loading settings", "FATAL")
 
         break
 
@@ -79,9 +91,9 @@ while True:
         stats = asset.stats(stats.split(";")[0], stats.split(";")[1])
         d.close()
 
-        logdata.add("Loaded stats")
+        addlog("Loaded stats")
     except:
-        logdata.add("Failed loading stats", "FATAL")
+        addlog("Failed loading stats", "FATAL")
 
         break
 
@@ -96,7 +108,7 @@ while True:
     # this is the script for the menu
     if a.upper() == "EXTRA":
         try:
-            logdata.add("Settings called")
+            addlog("Settings called")
 
             dodo = True
 
@@ -190,7 +202,7 @@ while True:
 
                 print()
         except:
-            logdata.add("Settings failed", "FATAL")
+            addlog("Settings failed", "FATAL")
 
             break
 
@@ -209,6 +221,8 @@ while True:
             posmaps = os.listdir("./ASSETS/MAPS")
         except:
             posmaps = os.listdir("./SRC/ASSETS/MAPS")
+
+        posmaps.remove(".DS_Store")
 
         possib = True
 
@@ -248,9 +262,9 @@ while True:
         print("playing on map: " + posmaps[int(choice)])
         print()
 
-        logdata.add("Chossen map: " + choice)
+        addlog("Chossen map: " + choice)
     except:
-        logdata.add("Failed loading map")
+        addlog("Failed loading map")
 
         break
     #-----
@@ -262,9 +276,9 @@ while True:
 
         callback = setup.callset(p1)
 
-        logdata.add("Player setup")
+        addlog("Player setup")
     except:
-        logdata.add("Failed setting up Player", "FATAL")
+        addlog("Failed setting up Player", "FATAL")
 
         break
 
@@ -284,7 +298,7 @@ while True:
 
         com = input(">> ")
 
-        logdata.add("Player command: " + com)
+        addlog("Player command: " + com)
 
         if com[:2].upper() == "GO":
             posib = []
@@ -429,7 +443,7 @@ while True:
 
             out.close()
 
-    d = open("ASSETS/STATS/data.txt", "w")
+    d = asset.openfi("ASSETS/STATS/data.txt", "w")
     stat = str(stats.win) + ";" + str(stats.loose)
     d.write(stat)
     d.close()
