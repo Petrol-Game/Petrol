@@ -6,7 +6,7 @@ import platform
 import sys
 
 import petrolasset as asset
-import extra
+import petrolextra as extra
 
 # log only works on UNIX based systems, do not enable on release
 
