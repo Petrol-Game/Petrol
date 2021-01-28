@@ -6,6 +6,7 @@ import platform
 import sys
 
 import petrolasset as asset
+import extra
 
 # log only works on UNIX based systems, do not enable on release
 
@@ -101,114 +102,38 @@ while True:
 
     info = asset.info()
 
-    title(info.version)
-    
-    a = input()
+    a = "++more cheese++"
 
-    # this is the script for the menu
-    if a.upper() == "EXTRA":
-        try:
-            addlog("Settings called")
+    while a != "":
+        title(info.version)
+        
+        a = input()
 
-            dodo = True
+        if a.upper() == "EXTRA":
+            extra.menu(info, stats)
 
-            while dodo:
-                asset.clear()
+            #reopen the settings file because settings may have been changed by the menu
 
-                print("[EXTRA]")
-                print()
+            try:
+                d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
+                settings = d.read()
+                settings = settings.split("\n")
+                de = settings[0]
+                d.close()
 
-                print("0: Settings")
-                print("1: Petrol Credits")
-                print("2: Source")
-                print("3: License")
-                print("4: Stats")
-                print("5: Info")
-                print("6: Exit")
-                print()
+                debug = bool(de)
 
-                a = int(input("? "))
+                last = None
 
-                print()
+                addlog("Settings loaded in")
+            except:
+                addlog("Failed loading settings", "FATAL")
 
-                if a == 0:
-                    dododo = True
+                break
 
-                    while dododo:
-                        asset.clear()
-                        
-                        print("[settings]")
-                        print()
-                        print("0: Debug - " + str(debug))
-                        print("1: Back")
-                        print()
+            #-----
 
-                        b = int(input("? "))
-
-                        if b == 0:
-                            debug = not(debug)
-
-                            togo = None
-
-                            if debug:
-                                togo = "1"
-                            else:
-                                togo = "0"
-
-                            togofi = asset.openfi("ASSETS/SETTINGS/config.txt", "w")
-                            settings = togo.split(';')
-
-                            togofi.write(asset.settingsset(settings))
-
-                            togofi.close()
-                        elif b == 1:
-                            dododo = False
-                        else:
-                            print("Error")
-                        
-                elif a == 1:
-                    print("Petrol Made by AUnicornWithNoLife")
-
-                    input()
-                elif a == 2:
-                    print(info.repo)
-
-                    input()
-                elif a == 3:
-                    li = asset.openfi("ASSETS/LI/LICENSE", "r")
-                    print(li.read())
-                    li.close()
-
-                    input()
-                elif a == 4:
-                    asset.clear()
-                    
-                    print("Wins: " + str(stats.win))
-                    print("Looses: " + str(stats.win))
-
-                    input()
-                elif a == 5:
-                    print(info)
-
-                    input()
-                elif a == 6:
-                    asset.clear()
-
-                    dodo = False
-                else:
-                    print("Error")
-
-                    input()
-
-                print()
-        except:
-            addlog("Settings failed", "FATAL")
-
-            break
-
-        #------
-
-        print("starting game")
+    print("starting game")
 
     #this loads in the possible maps and asks the user wich one they want to play
 

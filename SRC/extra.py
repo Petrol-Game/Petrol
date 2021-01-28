@@ -1,6 +1,16 @@
 import petrolasset as asset
 
 def menu(info, stats):
+    d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
+    settings = d.read()
+    settings = settings.split("\n")
+    de = settings[0]
+    d.close()
+
+    debug = bool(de)
+
+    last = None
+
     dodo = True
 
     while dodo:
