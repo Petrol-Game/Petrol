@@ -43,6 +43,8 @@ def menu(info, stats):
                 print("0: Debug - " + str(debug))
                 print("1: Back")
                 print()
+                print("You may have to reload for settings to update")
+                print()
 
                 b = int(input("? "))
 
