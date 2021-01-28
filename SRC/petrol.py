@@ -171,7 +171,7 @@ while True:
 
                     input()
                 elif a == 2:
-                    print("https://github.com/AUnicornWithNoLife/Petrol")
+                    print(info.repo)
 
                     input()
                 elif a == 3:
