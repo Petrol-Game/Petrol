@@ -1,0 +1,94 @@
+import petrolasset as asset
+
+def menu(info, stats):
+    dodo = True
+
+    while dodo:
+        asset.clear()
+
+        print("[EXTRA]")
+        print()
+
+        print("0: Settings")
+        print("1: Petrol Credits")
+        print("2: Source")
+        print("3: License")
+        print("4: Stats")
+        print("5: Info")
+        print("6: Exit")
+        print()
+
+        a = int(input("? "))
+
+        print()
+
+        if a == 0:
+            dododo = True
+
+            while dododo:
+                asset.clear()
+                
+                print("[settings]")
+                print()
+                print("0: Debug - " + str(debug))
+                print("1: Back")
+                print()
+
+                b = int(input("? "))
+
+                if b == 0:
+                    debug = not(debug)
+
+                    togo = None
+
+                    if debug:
+                        togo = "1"
+                    else:
+                        togo = "0"
+
+                    togofi = asset.openfi("ASSETS/SETTINGS/config.txt", "w")
+                    settings = togo.split(';')
+
+                    togofi.write(asset.settingsset(settings))
+
+                    togofi.close()
+                elif b == 1:
+                    dododo = False
+                else:
+                    print("Error")
+                
+        elif a == 1:
+            print("Petrol Made by AUnicornWithNoLife")
+
+            input()
+        elif a == 2:
+            print(info.repo)
+
+            input()
+        elif a == 3:
+            li = asset.openfi("ASSETS/LI/LICENSE", "r")
+            print(li.read())
+            li.close()
+
+            input()
+        elif a == 4:
+            asset.clear()
+            
+            print("Wins: " + str(stats.win))
+            print("Looses: " + str(stats.win))
+
+            input()
+        elif a == 5:
+            print(info)
+
+            input()
+        elif a == 6:
+            asset.clear()
+
+            dodo = False
+        else:
+            print("Error")
+
+            input()
+
+        print()
