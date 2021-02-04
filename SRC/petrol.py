@@ -8,7 +8,7 @@ import sys
 import petrolasset as asset
 import petrolextra as extra
 
-# log only works on UNIX based systems, do not enable on release
+# log only works on UNIX based systems, do not enable on release, beta or alpha.
 
 dolog = False
 
@@ -20,11 +20,11 @@ if dolog:
     # create log, and create event for load
 
     logdata = log.log()
-    addlog("Loaded Petrol")
+    logdata.add("Loaded Petrol")
 
 def addlog(msg, ltype = "INFO"):
     if dolog:
-        addlog(msg, ltype)
+        logdata.add(msg, ltype)
 
 # title function shows the title and info at the begining
 def title(version):
@@ -73,8 +73,6 @@ while True:
 
         debug = bool(de)
 
-        last = None
-
         addlog("Settings loaded in")
     except:
         addlog("Failed loading settings", "FATAL")
@@ -122,8 +120,6 @@ while True:
                 d.close()
 
                 debug = bool(de)
-
-                last = None
 
                 addlog("Settings loaded in")
             except:
