@@ -8,7 +8,7 @@ import sys
 import petrolasset as asset
 import petrolextra as extra
 
-# log only works on UNIX based systems, do not enable on release, beta or alpha.
+# log only works on UNIX based systems, do not enable on release, beta or alpha versions of this software.
 
 dolog = False
 
@@ -67,8 +67,8 @@ while True:
     try:
         d = asset.openfi("ASSETS/SETTINGS/config.txt", "r")
         settings = d.read()
-        settings = settings.split("\n")
-        de = settings[0]
+        settingspl = settings.split("\n")
+        de = settingspl[0]
         d.close()
 
         debug = bool(de)
@@ -85,7 +85,6 @@ while True:
 
     try:
         d = asset.openfi("ASSETS/STATS/data.txt", "r")
-        #d = asset.openfi("ASSETS/STATS/tt.txt", "r")
         stats = d.read()
         stats = asset.stats(stats.split(";")[0], stats.split(";")[1])
         d.close()

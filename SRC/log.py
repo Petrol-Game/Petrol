@@ -4,13 +4,6 @@ import errno
 
 loczip = "/tmp/Petrol/LOG/runtime.log"
 
-if not os.path.exists(os.path.dirname(loczip)):
-    try:
-        os.makedirs(os.path.dirname(loczip))
-    except OSError as exc: # Guard against race condition
-        if exc.errno != errno.EEXIST:
-            raise
-
 class entry:
     def __init__(self, info, level = "INFO"):
         self.level = level
@@ -25,6 +18,13 @@ class entry:
 
 class log:
     def __init__(self):
+        if not os.path.exists(os.path.dirname(loczip)):
+            try:
+                os.makedirs(os.path.dirname(loczip))
+            except OSError as exc: # Guard against race condition
+                if exc.errno != errno.EEXIST:
+                    raise
+                
         self.data = []
 
     def add(self, info, level = "INFO"):
