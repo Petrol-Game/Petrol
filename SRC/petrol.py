@@ -74,8 +74,8 @@ while True:
         debug = bool(de)
 
         addlog("Settings loaded in")
-    except:
-        addlog("Failed loading settings", "FATAL")
+    except Exception as Ex:
+        addlog("Failed loading settings - " + Ex.__str__(), "FATAL")
 
         break
 
@@ -90,8 +90,8 @@ while True:
         d.close()
 
         addlog("Loaded stats")
-    except:
-        addlog("Failed loading stats", "FATAL")
+    except Exception as Ex:
+        addlog("Failed loading stats - " + Ex.__str__(), "FATAL")
 
         break
 

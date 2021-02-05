@@ -213,15 +213,18 @@ def petrolcredits(cred):
 def openfi(name, method = "r"):		
     out = None		
 
-    try:		
-        try:		
-            out = open("./" + name.__str__(), method.__str__())		
+    try:
+        try:
+            try:
+                out = open("./" + name.__str__(), method.__str__())		
+            except:		
+                out = open("./SRC/" + name.__str__(), method.__str__())		
         except:		
-            out = open("./SRC/" + name.__str__(), method.__str__())		
-    except:		
-        out = open("./Petrol" + name.__str__(), method.__str__())	
+            out = open("./Petrol.zip/" + name.__str__(), method.__str__())	
 
-    return out		
+        return out
+    except:
+        print("FAILURE")
 
 def clear(): 		
     if os.name == 'nt': 		
