@@ -102,6 +102,8 @@ while True:
     a = "++more cheese++"
 
     while a != "":
+        last = None
+        
         title(info.version)
         
         a = input()
@@ -168,6 +170,9 @@ while True:
                 possib = False
             except Exception as e:
                 print(e)
+
+                input()
+
                 pass
 
         maptxt = mapfi.read()
