@@ -1,15 +1,18 @@
 import petrolasset as asset
 
 class callset:
-    def __init__(self, player):
-        npcs = []
+    def __init__(self, player, npcs, donpc):
+        if donpc:
+            npcs = []
 
-        npcs.append(asset.npc("Mr Road", asset.position(0, 0), 10, 0, 1))
-        npcs.append(asset.npc("Mrs Armstrong", asset.position(3, 2), 10, 0, 1))
-        npcs.append(asset.npc("Mr Thyme", asset.position(6, 5), 10, 0, 5))
-        npcs.append(asset.npc("Mr Almost", asset.position(10, 5), 10, 0, 10))
+            npcs.append(asset.npc("Mr Road", asset.position(0, 0), 10, 0, 1))
+            npcs.append(asset.npc("Mrs Armstrong", asset.position(3, 2), 10, 0, 1))
+            npcs.append(asset.npc("Mr Thyme", asset.position(6, 5), 10, 0, 5))
+            npcs.append(asset.npc("Mr Almost", asset.position(10, 5), 10, 0, 10))
 
-        self.npcs = npcs
+            self.npcs = npcs
+        else:
+            self.npcs = npcs
 
         player.health = 10
 
@@ -148,6 +151,15 @@ class callset:
                 player.health = player.health - (player.health - 10)
 
             print("you ate an apple, your health is now at, " + player.health.__str__())
+        elif item.upper() == "MANUAL":
+            print()
+
+            print("MANUAL")
+
+            print()
+
+            print("to move, type go, then the direction you want to go (North, South, etc)")
+            print()
         else:
             print("sorry you cannot interact with this object")
 

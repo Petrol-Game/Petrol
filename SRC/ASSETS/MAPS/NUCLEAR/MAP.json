@@ -1,0 +1,23 @@
+{
+	"0/0":{
+		"name":"spawn",
+		"dirs":
+		[
+			
+		],
+		"items":
+		[
+			
+		]
+	},
+	"SPAWN":{
+		"coord":"0/0",
+		"lives":"1",
+		"autorespawn":"False",
+		"items":[
+			"torch",
+			"knife",
+			"manual"
+		]
+	}
+}

@@ -868,7 +868,8 @@
 		"autorespawn":"False",
 		"items":[
 			"torch",
-			"knife"
+			"knife",
+			"manual"
 		]
 	}
 }
