@@ -144,7 +144,7 @@ while True:
 
     asset.clear()
 
-    pretty.pprint("What save ID do you want to use, 1-5?")
+    pretty.pprint("What save ID do you want to use?")
 
     sid = input()
 
