@@ -49,7 +49,7 @@ def title(version):
         #this loads in one of the ascii art logos and displays it alongside other info
         logo = asset.openfi("ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
 
-        pretty.ppretty.pprint("<GREEN>", logo.read(), "<ENDC>")
+        pretty.pprint("<GREEN>", logo.read(), "<ENDC>")
 
         logo.close()
         logo = None
@@ -142,22 +142,49 @@ while True:
 
     #this loads in the possible maps and asks the user wich one they want to play
 
+    ids = []
+
+    for i in range(6):
+        data = None
+        good = None
+
+        try:
+            data = "<GREEN>" + asset.loadData(str(i))[0] + "<ENDC>"
+
+            good = True
+        except:
+            data = "<RED>Empty<ENDC>"
+
+            good = False
+        
+        ids.append([str(i), data, good])
+
     asset.clear()
+    
+    for i in ids:
+        pretty.pprint(i[0] + " ~ " + i[1])
+    
+    print()
 
-    pretty.pprint("What save ID do you want to use?")
-
-    sid = input()
+    sid = input("ID? ")
 
     print()
     
-    pretty.pprint("Do you wan to load your last game?")
+    load = ids[int(sid)][2]
+
+    if load:
+        print()
+
+        print("Do you want to overwrite that save?")
+
+        load = input().upper() == "Y"
 
     p1 = None
     mapd = None
     setup = None
     mapname = None
     
-    if input().upper() == "Y":
+    if load:
         asset.clear()
         
         loda = asset.load(sid)
