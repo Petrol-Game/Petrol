@@ -2,6 +2,7 @@ import random
 import time
 import json
 import os
+import pickle
 
 class npc:
     def __init__(self, name, position, health, relation, damage):
@@ -237,5 +238,34 @@ def settingsset(ar):
 
     for i in ar:
         out += i + "\n"
+
+    return out
+
+def save(player, mapd, mapname, npc, sid):
+    with openfi('ASSETS/SAVES/' + sid + '/player.config', 'wb') as player_f:
+        pickle.dump(player, player_f)
+    with openfi('ASSETS/SAVES/' + sid + '/map.config', 'wb') as map_f:
+        pickle.dump(mapd, map_f)
+    with openfi('ASSETS/SAVES/' + sid + '/name.config', 'wb') as name:
+        pickle.dump(mapname, name)
+    with openfi('ASSETS/SAVES/' + sid + '/npc.config', 'wb') as npcs:
+        pickle.dump(npc, npcs)
+
+def load(sid):
+    player = None
+    mapd = None
+    mapname = None
+    npc = None
+    
+    with openfi('ASSETS/SAVES/' + sid + '/player.config', 'rb') as player_f:
+        player = pickle.load(player_f)
+    with openfi('ASSETS/SAVES/' + sid + '/map.config', 'rb') as map_f:
+        mapd = pickle.load(map_f)
+    with openfi('ASSETS/SAVES/' + sid + '/name.config', 'rb') as name:
+        mapname = pickle.load(name)
+    with openfi('ASSETS/SAVES/' + sid + '/npc.config', 'rb') as npcs:
+        npc = pickle.load(npcs)
+
+    out = [player, mapd, mapname, npc]
 
     return out
