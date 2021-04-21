@@ -11,6 +11,6 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-please email benjamin@redofromstart.co.uk
+please post a post in the discussions
 
 updates to fix critical security issues will be released as soon as they have been made
