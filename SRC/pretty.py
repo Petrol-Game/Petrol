@@ -1,5 +1,7 @@
 import os
 
+import handle
+
 class bcolors:
     ENDC = '\033[0m'
     
@@ -18,7 +20,7 @@ class bcolors:
 def setup():
     os.system('')
 
-def pprint(*args):
+def out(*args):
     repla = [['<ENDC>', bcolors.ENDC],['<BOLD>', bcolors.BOLD],['<UNDER>', bcolors.UNDERLINE],['<BLACK>', bcolors.BLACK],['<RED>', bcolors.RED],['<GREEN>', bcolors.GREEN],['<YELLOW>', bcolors.YELLOW],['<BLUE>', bcolors.BLUE],['<MAGENTA>', bcolors.MAGENTA],['<CYAN>', bcolors.CYAN],['<WHITE>', bcolors.WHITE]]
 
     out = ""
@@ -29,9 +31,9 @@ def pprint(*args):
     for r in repla:
         out = out.replace(r[0], r[1])
     
-    print(out)
+    handle.out(out)
 
-def iinput(*args):
+def get(*args):
     repla = [['<ENDC>', bcolors.ENDC],['<BOLD>', bcolors.BOLD],['<UNDER>', bcolors.UNDERLINE],['<BLACK>', bcolors.BLACK],['<RED>', bcolors.RED],['<GREEN>', bcolors.GREEN],['<YELLOW>', bcolors.YELLOW],['<BLUE>', bcolors.BLUE],['<MAGENTA>', bcolors.MAGENTA],['<CYAN>', bcolors.CYAN],['<WHITE>', bcolors.WHITE]]
 
     out = ""
@@ -42,7 +44,7 @@ def iinput(*args):
     for r in repla:
         out = out.replace(r[0], r[1])
     
-    return input(out)
+    return handle.get(out)
 
 def calc(*args):
     repla = [['<ENDC>', bcolors.ENDC],['<BOLD>', bcolors.BOLD],['<UNDER>', bcolors.UNDERLINE],['<BLACK>', bcolors.BLACK],['<RED>', bcolors.RED],['<GREEN>', bcolors.GREEN],['<YELLOW>', bcolors.YELLOW],['<BLUE>', bcolors.BLUE],['<MAGENTA>', bcolors.MAGENTA],['<CYAN>', bcolors.CYAN],['<WHITE>', bcolors.WHITE]]

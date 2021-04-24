@@ -5,7 +5,8 @@ import importlib
 import platform
 import sys
 
-import pretty # adds ability to print colors
+import pretty # adds ability to handle colors
+import handle
 
 import petrolasset as asset
 import petrolextra as extra
@@ -33,7 +34,7 @@ def title(version):
     if platform.system() == "Windows":
         asset.clear()
 
-        pretty.pprint("<GREEN>Petrol<ENDC>")
+        pretty.out("<GREEN>Petrol<ENDC>")
     else:
         asset.clear()
 
@@ -49,17 +50,17 @@ def title(version):
         #this loads in one of the ascii art logos and displays it alongside other info
         logo = asset.openfi("ASSETS/LOGO/" + str(random.randint(0,logoaa)) + ".txt", "r")
 
-        pretty.pprint("<GREEN>", logo.read(), "<ENDC>")
+        pretty.out("<GREEN>", logo.read(), "<ENDC>")
 
         logo.close()
         logo = None
     
-    pretty.pprint()
-    pretty.pprint("<BLUE>V:<ENDC> " + version)
-    pretty.pprint()
-    pretty.pprint("[PRESS <RED>ENTER<ENDC> TO <GREEN>START<ENDC>]")
-    pretty.pprint("for extra options type extra")
-    pretty.pprint()
+    pretty.out()
+    pretty.out("<BLUE>V:<ENDC> " + version)
+    pretty.out()
+    pretty.out("[PRESS <RED>ENTER<ENDC> TO <GREEN>START<ENDC>]")
+    pretty.out("for extra options type extra")
+    pretty.out()
     #-----
 
 #this is the main loop the code runs on
@@ -79,7 +80,7 @@ while True:
     except Exception as Ex:
         addlog("Failed loading settings - " + Ex.__str__(), "FATAL")
         
-        pretty.pprint(Ex)
+        pretty.out(Ex)
 
         break
 
@@ -97,7 +98,7 @@ while True:
     except Exception as Ex:
         addlog("Failed loading stats - " + Ex.__str__(), "FATAL")
 
-        pretty.pprint(Ex)
+        pretty.out(Ex)
         
         break
 
@@ -112,7 +113,7 @@ while True:
         
         title(info.version)
         
-        a = input()
+        a = handle.get()
 
         if a.upper() == "EXTRA":
             extra.menu(info, stats)
@@ -132,13 +133,13 @@ while True:
             except Exception as Ex:
                 addlog("Failed loading settings", "FATAL")
 
-                pretty.pprint(Ex)
+                pretty.out(Ex)
 
                 break
 
             #-----
 
-    pretty.pprint("starting game")
+    pretty.out("starting game")
 
     #this loads in the possible maps and asks the user wich one they want to play
 
@@ -167,22 +168,22 @@ while True:
     asset.clear()
     
     for i in ids:
-        pretty.pprint(i[0] + " ~ " + i[1])
+        pretty.out(i[0] + " ~ " + i[1])
     
-    print()
+    handle.out()
 
-    sid = input("ID? ")
+    sid = handle.get("ID? ")
 
-    print()
+    handle.out()
     
     load = ids[int(sid)][2]
 
     if load:
-        print()
+        handle.out()
 
-        print("Do you want to overwrite that save?")
+        handle.out("Do you want to overwrite that save?")
 
-        load = input().upper() == "Y"
+        load = handle.get().upper() == "Y"
 
     p1 = None
     mapd = None
@@ -222,18 +223,18 @@ while True:
         while possib:
             asset.clear()
 
-            pretty.pprint("MAPS:")
-            print()
+            pretty.out("MAPS:")
+            handle.out()
 
             i = 0
 
             for posm in posmaps:
-                pretty.pprint(i.__str__() + ": " + colors[i] + posm + " ~ " + desc[i] + "<ENDC>")
+                pretty.out(i.__str__() + ": " + colors[i] + posm + " ~ " + desc[i] + "<ENDC>")
 
                 i += 1
 
-            pretty.pprint()
-            choice = input("? ")
+            pretty.out()
+            choice = handle.get("? ")
 
             try:
                 mapfi = asset.openfi("ASSETS/MAPS/" + posmaps[int(choice)] + "/map.json", "r")
@@ -241,9 +242,9 @@ while True:
 
                 possib = False
             except Exception as e:
-                pretty.pprint(e)
+                pretty.out(e)
 
-                input()
+                handle.get()
 
                 pass
 
@@ -256,8 +257,8 @@ while True:
 
             asset.clear()
             
-            pretty.pprint("playing on map: " + posmaps[int(choice)])
-            pretty.pprint()
+            pretty.out("playing on map: " + posmaps[int(choice)])
+            pretty.out()
 
             mapname = posmaps[int(choice)]
 
@@ -275,7 +276,7 @@ while True:
         except Exception as Ex:
             addlog("Failed setting up Player", "FATAL")
 
-            pretty.pprint(Ex)
+            pretty.out(Ex)
 
             break
 
@@ -284,18 +285,18 @@ while True:
     #this loop is where the gameplay happens
     while p1.health >= 0:
         if last != p1.posi():
-            pretty.pprint()
+            pretty.out()
             callback.newroom(p1.posi(), mapd, p1)
     
         callback.room(p1, p1.posi())
     
-        pretty.pprint()
+        pretty.out()
 
         last = p1.posi()
 
         asset.save(p1, mapd, mapname, callback.npcs, sid)
 
-        com = pretty.iinput("<BOLD><UNDER><RED>>><ENDC> ")
+        com = pretty.get("<BOLD><UNDER><RED>>><ENDC> ")
 
         addlog("Player command: " + com)
 
@@ -317,12 +318,12 @@ while True:
                 elif com.upper() == "GO WEST":
                     p1.pos.gowest()
             else:
-                pretty.pprint("sorry you cant travel that way") 
+                pretty.out("sorry you cant travel that way") 
         elif com[:4].upper() == "KILL":
             callback.attack(p1.fist, "fist", com[5:], p1.pos)
         elif com.upper() == "BACKPACK":
-            pretty.pprint()
-            pretty.pprint(p1.inventory.__str__())
+            pretty.out()
+            pretty.out(p1.inventory.__str__())
         elif com[:6].upper() == "PICKUP":
             # allows you to pickup items, still need to add functoins to allow you to drop items
 
@@ -332,11 +333,11 @@ while True:
                         p1.inventory.items.append(item.upper())
                         mapd[p1.posi()]["items"] = None
 
-                        pretty.pprint("picked up " + com[7:].upper())
+                        pretty.out("picked up " + com[7:].upper())
                     else:
-                        pretty.pprint("sorry could not find " + com[7:].upper())
+                        pretty.out("sorry could not find " + com[7:].upper())
                 except:
-                    pretty.pprint("sorry could not find " + com[7:].upper())
+                    pretty.out("sorry could not find " + com[7:].upper())
         elif com[:3].upper() == "USE":
             pos = p1.inventory.items
             cando = False
@@ -350,7 +351,7 @@ while True:
             if cando:
                 callback.interact(com[4:], p1)
             else:
-                pretty.pprint("sorry you dont have that item")
+                pretty.out("sorry you dont have that item")
         elif com.upper() == "CREDITS":
             asset.clear()
 
@@ -382,13 +383,13 @@ while True:
 
                         mapd[p1.pos.__str__()]["items"].append(item.__str__())
 
-                    pretty.pprint("Dropped")
+                    pretty.out("Dropped")
 
                 if not(did):
-                    pretty.pprint("Cound not drop " + com[5:].upper())
+                    pretty.out("Cound not drop " + com[5:].upper())
         elif com.upper() == "END":
-            pretty.pprint("Exiting")
-            pretty.pprint()
+            pretty.out("Exiting")
+            pretty.out()
             
             sys.exit()
         else:
@@ -396,55 +397,55 @@ while True:
 
             if debug:
                 if com.upper() == "TP":
-                    pretty.pprint("[DEBUG]")
-                    pretty.pprint("debug command - not garanteed to work")
-                    pretty.pprint()
+                    pretty.out("[DEBUG]")
+                    pretty.out("debug command - not garanteed to work")
+                    pretty.out()
 
-                    p1.pos = asset.position(input("x: "), input("y: "))
+                    p1.pos = asset.position(handle.get("x: "), handle.get("y: "))
                 elif com.upper() == "WIN":
-                    pretty.pprint("[DEBUG]")
-                    pretty.pprint("debug command - not garanteed to work")
-                    pretty.pprint()
+                    pretty.out("[DEBUG]")
+                    pretty.out("debug command - not garanteed to work")
+                    pretty.out()
 
                     p1.won = True
                     p1.health = -1
                 elif com.upper() == "LOOSE":
-                    pretty.pprint("[DEBUG]")
-                    pretty.pprint("debug command - not garanteed to work")
-                    pretty.pprint()
+                    pretty.out("[DEBUG]")
+                    pretty.out("debug command - not garanteed to work")
+                    pretty.out()
 
                     p1.won = False
                     p1.health = -1
                 else:
-                    pretty.pprint("<RED><BOLD>invalid command<ENDC> " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
+                    pretty.out("<RED><BOLD>invalid command<ENDC> " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
             else:
-                pretty.pprint("<RED><BOLD>invalid command<ENDC> " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
+                pretty.out("<RED><BOLD>invalid command<ENDC> " + '"' + com.upper() + '"' + ", if you believe this is an error please report in on the issues page, on the github repository")
 
     asset.clear()
 
-    #this handles the endgame stuff
-    pretty.pprint()
+    #this ios the endgame stuff
+    pretty.out()
     
     if p1.won:
         stats.addwin()
         
         if platform.system() == "Windows":
-            pretty.pprint("You Won!")
+            pretty.out("You Won!")
         else:
             out = asset.openfi("ASSETS/END/WIN.txt")
 
-            pretty.pprint(out.read())
+            pretty.out(out.read())
 
             out.close()
     else:
         stats.addloose()
         
         if platform.system() == "Windows":
-            pretty.pprint("You Lost!")
+            pretty.out("You Lost!")
         else:
             out = asset.openfi("ASSETS/END/LOST.txt")
 
-            pretty.pprint(out.read())
+            pretty.out(out.read())
 
             out.close()
 
@@ -453,5 +454,5 @@ while True:
     d.write(stat)
     d.close()
 
-    pretty.pprint()
-    input()
+    pretty.out()
+    handle.get()
